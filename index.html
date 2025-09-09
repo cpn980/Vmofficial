@@ -1,0 +1,736 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Valuation Mantra</title>
+  <style>
+    :root{
+      --bg: #0b1020;
+      --surface: #12172a;
+      --text: #e8edf7;
+      --muted: #9aa4c7;
+      --primary: #6aa3ff;
+      --primary-cta: #4f8dff;
+      --ring: rgba(106,163,255,.35);
+      --maxw: 1100px;
+      --radius: 16px;
+      --shadow: 0 10px 30px rgba(0,0,0,.25);
+    }
+    @media (prefers-color-scheme: light){
+      :root{
+        --bg: #f7f9ff;
+        --surface: #ffffff;
+        --text: #0e1020;
+        --muted: #52607a;
+        --primary: #185bd8;
+        --primary-cta: #154fc0;
+        --ring: rgba(24,91,216,.25);
+      }
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      color:var(--text);
+      background: radial-gradient(1200px 600px at 70% -10%, rgba(106,163,255,.15), transparent 60%), var(--bg);
+      line-height:1.6;
+    }
+    a{color:inherit;text-decoration:none;}
+    .container{max-width:var(--maxw);margin-inline:auto;padding:0 20px}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+    /* Header */
+    header{
+      position:sticky;top:0;z-index:50;
+      background: color-mix(in hsl, var(--surface) 90%, transparent);
+      backdrop-filter:saturate(140%) blur(10px);
+      border-bottom:1px solid color-mix(in hsl, var(--muted) 25%, transparent);
+    }
+    .nav{display:flex;align-items:center;justify-content:space-between;min-height:64px}
+    .brand{display:flex;gap:10px;align-items:center;font-weight:700; font-size:1em;}
+    .brand .logo{
+      width:32px;height:32px;border-radius:8px; background-image:URL(''); background-size:100% 100%;
+          }
+    .menu{display:flex;gap:12px;align-items:center}
+    .menu a{padding:10px 12px;border-radius:12px text-decoration:none;}
+    .menu a:hover, .menu a:focus{outline:0;background:color-mix(in hsl, var(--primary) 18%, transparent)}
+	 #home-title { text-align:left; font-size:2em; line-height:1.2; margin-bottom:20px; padding:0px; } 
+	
+    .cta{padding:10px 24px; border-radius:8px; background:#000000;color:white;font-weight:600;}
+    .cta:focus-visible{outline:3px solid var(--ring)}
+
+    .toggle{display:none;background:none;border:0;font-size:16px;padding:10px;border-radius:12px}
+    .toggle:focus-visible{outline:3px solid var(--ring)}
+
+    @media (max-width: 820px){
+      .toggle{display:inline-flex;align-items:center;gap:8px}
+      .menu{position:fixed;inset:64px 12px auto 12px;flex-direction:column;align-items:stretch;background:var(--surface);padding:6px;border-radius:16px;box-shadow:var(--shadow);border:1px solid color-mix(in hsl, var(--muted) 20%, transparent);display:none}
+      .menu.open{display:flex}
+      .menu a{padding:14px 12px}
+      .menu .cta{justify-content:center}
+    }
+
+    /* Sections */
+    section { padding:40px 10px}
+    section .wrap{display:grid;grid-template-columns:1fr 3fr;gap:36px; align-items:top; }
+	section .offering_wrap{display:grid;grid-template-columns:1fr; align-items:center}
+	section .list_item { margin-top:20px; }
+	section .list_item ol li { margin:10px; }
+	section h2{margin:0 0 10px;font-size:clamp(22px, 3.2vw, 36px)}
+    section p{margin:0;color:var(--muted)}
+    .card{background-color:transparent; margin:auto;}
+	.blog_Cards { background-color:#FFFFFF;  padding:10px; } 
+
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+	.grid_3Coloumn{display:grid;grid-template-columns:repeat(3,1fr);gap:24px; margin:50px 20px 50px 20px;}
+	.grid_3Coloumn .card h3{margin:0 0 8px; font-size:1em;}
+	 
+	.grid_2Coloumn  {display:grid;grid-template-columns:repeat(2,1fr);gap:24px; margin:40px 20px 50px 20px; valign-items:top;}
+	
+	.grid_4Coloumn{display:grid;grid-template-columns:repeat(4,1fr);gap:24px; margin:50px 20px 50px 20px;}
+	.grid_4Coloumn .card h3{margin:0 0 8px; font-size:.8em;}
+    .grid .card h3{margin:0 0 8px}
+	
+	/*About */
+	.aboutme {display:grid;grid-template-columns:3fr 1fr;gap:36px;align-items:top;}
+	.profile_image_left { display:none; } 
+	iframe { width:480px; height:300px;  }
+	
+	#complaints h3 { margin:0px; }
+	/* Table */
+	
+    table { margin:0px; padding:0px; }
+	.complaints_table { margin: 40px 0px; }
+	.contactwrap { width:100%; }
+	.singlegrid {grid-template-columns:1fr; margin:0px auto; width:500px; border:1px solid grey; padding:24px; background-color:#FFF;}
+	
+   .table { display:table; width:100%; border-collapse:collapse;}
+   .table-row { display: table-row;}
+   .table-header { font-weight: bold; background: #a9a9a9;}
+   .table-cell {display:table-cell; border: 1px solid #ddd; padding: 8px; text-align: left;}
+	
+	#contacts {    max-width: 900px;     margin: 20px auto;    font-family: Arial, sans-serif;    padding: 10px;  }
+    #contacts h2 {    margin-bottom: 16px;    text-align: center;  }
+   .card {    border: 1px solid #ddd;    border-radius: 8px;    padding: 12px 16px;    margin-bottom: 16px;    box-shadow: 0 2px 6px rgba(0,0,0,0.05);    background: #fff;  }
+   .field {    margin: 6px 0;  }
+   .field strong {    display: inline-block;    width: 180px;    color: #333;  }
+   a {    color: #185bd8;    text-decoration: none;  }
+   a:hover {    text-decoration: underline;  }
+   @media (max-width: 600px) {  
+   .field strong {
+      display: block;
+      width: auto;
+      margin-bottom: 4px;
+      color: #000;
+     }
+    }
+	.table-section {
+    max-width: 900px;
+    margin: 20px auto;
+    font-family: Arial, sans-serif;
+    padding: 10px;
+  }
+  .table-section h2 { margin-bottom: 16px;    text-align: center;  }
+  .card { border: 1px solid #ddd;    border-radius: 8px;    padding: 12px 16px;    margin-bottom: 16px;    box-shadow: 0 2px 6px rgba(0,0,0,0.05)   background: #fff;
+  }
+  .card.total {    background: #f9fafc;    border: 2px solid #185bd8;  }
+  .field {    margin: 6px 0;  }
+  .field strong {    display: inline-block;    width: 200px;    color: #333;  }
+  @media (max-width: 600px) {
+    .field strong {
+      display: block;
+      width: auto;
+      margin-bottom: 4px;
+      color: #000;
+    }
+  }
+       .webcontact { display:block;}
+	   .mobilecontact {display:none }
+	   .webcomplaints { display:block; }
+	   .mobilecomplaints { display:none; }
+	   
+	  
+	
+	#mailform { max-width:500px; margin:0px auto; } 
+
+    @media (max-width: 920px){
+      section .wrap{grid-template-columns:1fr}
+      .grid{grid-template-columns:1fr 1fr}
+    }
+	/* Style for Mobile screen */
+    @media (max-width: 560px){
+	  .menu a{padding:6px 12px;border-radius:6px text-decoration:none;}
+      .grid{grid-template-columns:1fr}
+	   #home-title { text-align:center; font-size:2em;  } 
+	  .brand{center;font-weight:500; font-size:.75em;}
+	  .aboutme {grid-template-columns:1fr}
+	  .grid_3Coloumn{display:grid;grid-template-columns:1fr;gap:24px; margin:10px 0px 10px 0px;}
+	  .grid_2Coloumn {display:grid;grid-template-columns:1fr;gap:24px; margin:10px 0px 10px 0px;}
+	  .profile_image_left { display:block; margin:20px auto; }
+	  .profile_image_left img { display:block; margin:auto; width:100%; }
+	  .profile_image { display:none; }
+	  iframe { width:300px; height:200px; border:1px solid red; }
+	  
+	   section { padding:10px 0px; margin:0px;}
+	   #contacts {    max-width: 500px;    margin: 20px auto;    font-family: Arial, sans-serif;    padding: 0px;  }
+	   .webcontact { display:none;}
+	   .mobilecontact {display:block }
+	   .field strong {      display: block;      width: auto;      margin-bottom: 4px;      color: #000;    }
+	   .webcomplaints { display:none; }
+	   .mobilecomplaints { display:block; }
+    }
+
+
+    
+	
+	
+
+    /* Footer */
+    footer{border-top:1px solid color-mix(in hsl, var(--muted) 25%, transparent);padding:28px 0;margin-top:40px;background:color-mix(in hsl, var(--surface) 95%, transparent)}
+    .foot{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
+    .foot small{color:var(--muted)}
+  </style>
+</head>
+<body>
+  <a class="sr-only" href="#home">Skip to content</a>
+
+  <header>
+    <div class="container nav" role="navigation" aria-label="Primary">
+      <div class="brand"><div class="logo" aria-hidden="true" aria-label="VALUATION MANTRA"></div>VALUATION MANTRA</div>
+      <button class="toggle" aria-expanded="false" aria-controls="menu" id="menuButton">☰ Menu</button>
+      <nav class="menu" id="menu" aria-label="Navigation Menu">
+        <a href="#home">Home</a>
+        <a href="#AboutMe">About Us</a>
+        <a href="#pricing">Offering</a>
+        <a href="#blogs">Blogs & Media</a>
+		<a href="#regulatory">Regulatory</a>
+		<a href="#complaints">Complaints</a>
+        <a href="#contact">Contact</a>
+       <!-- <a class="cta" href="#contact">Get Started</a> -->
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Section 1 -->
+    <section id="home" aria-labelledby="home-title">
+      <div class="container wrap">
+	    <div class="card">
+           <a href="#" class="image featured">
+			<img src="./logo.jpg" alt="VALUATION MANTRA" width="200">
+		  </a>
+        </div>
+        <div>
+          <h1 id="home-title" >VALUATION MANTRA</h1>
+          <p class="style2">
+				Everything you want to buy has an MRP, but what about stocks? Advice like “buy the dip” or “buy low” or “buy right” is meaningless without a clear price. We provide low entry points to help you buy quality stocks at the right valuations with minimal downside. When your downside is limited, upside is infinite. buying at a low price also gives you peace of mind.
+		  </p>
+        </div>
+        </div>
+    </section>
+
+    <!-- Section 2 -->
+    <section id="AboutMe" aria-labelledby="About-Me">
+      <div class="container aboutme">
+	 
+	  <div>
+        <h2 id="features-title">About Me</h2>
+		 <div  style="margin-top:10px" class="profile_image_left"><img src="./profile.jpg" alt="VALUATION MANTRA" width="80%"></div>
+        <p>Naresh Nambisan is the founder of Valuation Mantra and lives by the principle “Valuation is the Mantra.”. He believes in following a system and process come what may.  As NISM-certified, SEBI-registered research analyst, he brings 17 years of stock market experience as a full-time trader and investor. His philosophy centres on buying businesses at the right valuation, combining disciplined analysis with a deep respect for risk and reward.</p> <br/>
+        <p>
+        Early in his journey, Naresh recognised the critical role of risk management and set out to develop a systematic way to identify fair and low valuations. To find right valuation, he used technical analysis. After years of rigorous work, extensive chart study, and thorough back testing, he created Virgin Price Action. This framework is designed to spot low-risk entry points by focusing on price structures where the downside is limited and the upside potential is substantial. Virgin Price Action is versatile and applies across equities, bonds, commodities, and currencies, helping investors buy low with greater confidence and clarity. </p>
+		</div>
+		 <div  style="margin-top:70px" class="profile_image"><img src="./profile.jpg" alt="VALUATION MANTRA" width="200">
+	  </div>
+		
+		</div>
+		
+      
+    </section>
+
+    <!-- Section 3 -->
+    <section id="pricing" aria-labelledby="Offering">
+      <div class="container offering_wrap">
+        <div>
+          <h2 id="pricing-title">Offerings</h2>
+          <h3>We offer low valuation for NSE200 stocks for investing.</h3>
+		  <p><strong>What can we do for you ? </strong><br>
+As an investor, when a Stock falls or when a stock is correcting, are you confused where to buy? You can’t keep buying a stock because money is always finite. We can help you buy right by giving you a narrow price band which will be low & your downside less.  </p>
+        </div>
+        
+      </div>
+	  <div class="container offering_wrap list_item">
+												
+<b>What Sets us apart & how will buying stocks low help you ?</b>
+ 
+                    <ol class="square_bullet">
+									<li class="square_bullet">We assign precise numbers to commonly used terms like ‘buy low’, ‘buy value’, ‘buy right’ & ‘buy the dip’ – bringing clarity. All these terms make sense only when its assigned a number/price & is actionable. </li>
+									<li class="square_bullet">When you buy at low valuations, your downside is limited & your upside is infinite.</li>
+									<li class="square_bullet">Starting valuations matter as they form the foundation of long term investment outcomes.</li>
+									<li class="square_bullet">You can allocate bigger capital when your know your downside is capped.</li>
+									<li class="square_bullet">Risk management begins with the price you pay – buying low is the first layer of protection.</li>
+									<li class="square_bullet">Capital preservation is paramount & buying low plays a crucial role in safeguarding your money.</li>
+									<li class="square_bullet">Even if you are buying dividend stocks, buy low so that you get both capital appreciation & dividends.</li>
+									<li class="square_bullet">Multibaggers are not found random; they are the result of following a system, process, buying low & allowing time to do the rest through compounding.</li>
+									
+								</ol>
+								
+											
+											</div>
+    </section>
+	
+	
+
+    <!-- Section 4 -->
+    <section id="blogs" aria-labelledby="Media-Blogs">
+      <div class="container Blogwrap">
+  <h2 id="about-title">Media & Blogs</h2>
+          <p>Tell your story, mission, and team. Keep it short and scannable.</p>
+        </div>
+        <div class="container" >
+        <div class="grid_2Coloumn" >
+          <article class="card blog_Cards"><h3>Moneycontrol Article</h3>
+		  <p><img src="./moneycontrol.jpg" alt="Money Control " width="480" height="200"><br>
+           Naresh Nambisan: Catching falling knives to trade for a living
+		  </p> <br> <a href="https://www.moneycontrol.com/news/business/markets/naresh-nambisan-catching-falling-knives-to-trade-for-a-living-4254171.html ">Read Article </a> 
+		 		  </article>
+				            <article class="card blog_Cards"><h3>Naresh Nambisan Blog</h3>
+		  <p><img src="./Naresh-Medium-Blog.jpg" alt="Naresh-Medium-Blog " width="480" height="200">
+		  </p> <br> <a href="https://nareshbahrain.medium.com " alt="Medium Naresh Blog">View Blog </a> 
+		 		  </article>
+	  
+		  <article class="card blog_Cards"><h3>Face to Face interview with Vivek Bajaj</h3> 
+		<iframe   src="https://www.youtube.com/embed/7sxN2fY_qAM" title="Identify Stock bottoms using Virgin Price Action #Face2Face with Naresh Nambisan" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+		<p> Identify Stock bottoms using Virgin Price Action #Face2Face with Naresh Nambisan  </p>
+		  </article>
+		  <article class="card blog_Cards"><h3>Interview with Trinkerr</h3> 
+		 <iframe width="480"  height="300" src="https://www.youtube.com/embed/ND0_hfJGHzQ" title="Catching Falling Knives | @nareshbahrain | Trading | Investing | Indian Stock Market" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+		  <p>A falling knife refers to a rapid drop in the price or value of a security. Get the complete guide from the full-time trader and investor Naresh Nambisan</p>
+		  </article>
+		 
+         
+			</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 5 -->
+    <section id="regulatory" aria-labelledby="Regulatory">
+      <div class="container offering_wrap">
+        <div>
+          <h2 id="Regulatory-title">Regulatory</h2>
+          <h3>Investment Charter</h3>
+		  <p>Investment in securities market are subject to market risks. Read all the related documents carefully before investing. Registration granted by SEBI and certification from NISM in no way guarantee performance of the intermediary or provide any assurance of returns to investors</p>
+        </div>
+          </div>
+	    </section>
+ <!-- Section 6 -->
+    <section id="complaints" aria-labelledby="Complaints">
+      <div class="container offering_wrap">
+        <div class="complaints_table">
+          <h2 id="Complaints-title">Complaints</h2>
+          <h3>Complaints Received</h3>
+		 
+
+<section class="table-section webcomplaints">
+  <div class="table">
+    <!-- Header Row -->
+    <div class="table-row table-header">
+      <div class="table-cell">Sources</div>
+      <div class="table-cell">Pending Last Month</div>
+      <div class="table-cell">Received</div>
+      <div class="table-cell">Resolved</div>
+      <div class="table-cell">Total Pending</div>
+      <div class="table-cell">Pending &gt;3 months</div>
+    </div>
+
+    <!-- Data Rows -->
+    <div class="table-row">
+      <div class="table-cell">Directly from Investors</div>
+      <div class="table-cell">0</div>
+      <div class="table-cell">0</div>
+      <div class="table-cell">0</div>
+      <div class="table-cell">0</div>
+      <div class="table-cell">0</div>
+    </div>
+
+    <div class="table-row">
+      <div class="table-cell">SEBI (SCORES)</div>
+      <div class="table-cell">0</div>
+      <div class="table-cell">0</div>
+      <div class="table-cell">0</div>
+      <div class="table-cell">0</div>
+      <div class="table-cell">0</div>
+    </div>
+
+    <div class="table-row">
+      <div class="table-cell">Other Sources</div>
+      <div class="table-cell">0</div>
+      <div class="table-cell">0</div>
+      <div class="table-cell">0</div>
+      <div class="table-cell">0</div>
+      <div class="table-cell">0</div>
+    </div>
+
+    <div class="table-row">
+      <div class="table-cell">Grand Total</div>
+      <div class="table-cell">0</div>
+      <div class="table-cell">0</div>
+      <div class="table-cell">0</div>
+      <div class="table-cell">0</div>
+      <div class="table-cell">0</div>
+    </div>
+  </div>
+  
+    
+</section>
+
+
+<section class="table-section mobilecomplaints">
+ 
+  <!-- Card 1 -->
+  <div class="card">
+    <div class="field"><strong>Sources:</strong> Directly from Investors</div>
+    <div class="field"><strong>Pending Last Month:</strong> 0</div>
+    <div class="field"><strong>Received:</strong> 0</div>
+    <div class="field"><strong>Resolved:</strong> 0</div>
+    <div class="field"><strong>Total Pending:</strong> 0</div>
+    <div class="field"><strong>Pending &gt;3 months:</strong> 0</div>
+  </div>
+
+  <!-- Card 2 -->
+  <div class="card">
+    <div class="field"><strong>Sources:</strong> SEBI (SCORES)</div>
+    <div class="field"><strong>Pending Last Month:</strong> 0</div>
+    <div class="field"><strong>Received:</strong> 0</div>
+    <div class="field"><strong>Resolved:</strong> 0</div>
+    <div class="field"><strong>Total Pending:</strong> 0</div>
+    <div class="field"><strong>Pending &gt;3 months:</strong> 0</div>
+  </div>
+
+  <!-- Card 3 -->
+  <div class="card">
+    <div class="field"><strong>Sources:</strong> Other Sources</div>
+    <div class="field"><strong>Pending Last Month:</strong> 0</div>
+    <div class="field"><strong>Received:</strong> 0</div>
+    <div class="field"><strong>Resolved:</strong> 0</div>
+    <div class="field"><strong>Total Pending:</strong> 0</div>
+    <div class="field"><strong>Pending &gt;3 months:</strong> 0</div>
+  </div>
+
+  <!-- Card 4 -->
+  <div class="card total">
+    <div class="field"><strong>Sources:</strong> Grand Total</div>
+    <div class="field"><strong>Pending Last Month:</strong> 0</div>
+    <div class="field"><strong>Received:</strong> 0</div>
+    <div class="field"><strong>Resolved:</strong> 0</div>
+    <div class="field"><strong>Total Pending:</strong> 0</div>
+    <div class="field"><strong>Pending &gt;3 months:</strong> 0</div>
+  </div>
+</section>
+
+</div>
+<div class="complaints_table">
+ <h3>Monthly Disposal of Complaints</h3>
+ <section class="table-section webcomplaints">
+  <div class="table">
+    <!-- Header Row -->
+    <div class="table-row table-header">
+      <div class="table-cell">Month</div>
+      <div class="table-cell">Carried Forward</div>
+      <div class="table-cell">Received</div>
+      <div class="table-cell">Resolved</div>
+      <div class="table-cell">Pending</div>
+         </div>
+    <!-- Data Rows -->
+    <div class="table-row">
+      <div class="table-cell">Aug 2025</div>
+      <div class="table-cell">0</div>
+      <div class="table-cell">0</div>
+      <div class="table-cell">0</div>
+      <div class="table-cell">0</div>
+   
+    </div>
+   
+  </div>
+</section>
+<section class="table-section mobilecomplaints">
+   <!-- Card 1 -->
+  <div class="card">
+    <div class="field"><strong>Month:</strong> Aug 2025</div>
+    <div class="field"><strong>Carried Forward:</strong> 0</div>
+    <div class="field"><strong>Received:</strong> 0</div>
+    <div class="field"><strong>Resolved:</strong> 0</div>
+    <div class="field"><strong>Pending:</strong> 0</div>
+    <div class="field"><strong>Pending:</strong> 0</div>
+  </div>
+</section>
+
+
+        </div>
+		<div class="complaints_table">
+ <h3>Annual Disposal of Complaints</h3>
+ <section class="table-section webcomplaints">
+  <div class="table">
+    <!-- Header Row -->
+    <div class="table-row table-header">
+      <div class="table-cell">Year</div>
+      <div class="table-cell">Carried Forward</div>
+      <div class="table-cell">Received</div>
+      <div class="table-cell">Resolved</div>
+      <div class="table-cell">Pending</div>
+         </div>
+
+    <!-- Data Rows -->
+    <div class="table-row">
+      <div class="table-cell">2025-26</div>
+      <div class="table-cell">0</div>
+      <div class="table-cell">0</div>
+      <div class="table-cell">0</div>
+      <div class="table-cell">0</div>
+     
+    </div>
+   
+  </div>
+</section>
+<section class="table-section mobilecomplaints">
+   <!-- Card 1 -->
+  <div class="card">
+    <div class="field"><strong>Year:</strong> 2025 - 26</div>
+    <div class="field"><strong>Carried Forward:</strong> 0</div>
+    <div class="field"><strong>Received:</strong> 0</div>
+    <div class="field"><strong>Resolved:</strong> 0</div>
+    <div class="field"><strong>Pending:</strong> 0</div>
+    <div class="field"><strong>Pending:</strong> 0</div>
+  </div>
+</section>
+
+        </div>
+		<div>Score:<a href=" https://scores.sebi.gov.in">https://scores.sebi.gov.in</a></div>
+        <div>ODR:<a href="https://smarrtodr.in">https://smarrtodr.in</a></div>
+          </div>
+	    </section>
+    <!-- Section 7 -->
+        
+        <section id="contact" aria-labelledby="contact-title">
+		<div class="contactwrap">
+  <div class="container">
+    <h2 id="contact-title">Contacts</h2>
+    
+    <div class="singlegrid">
+      <h3>Main Contact</h3>
+      <p>
+        <strong>Email:</strong> 
+        <a href="mailto:nareshbahrain@gmail.com">nareshbahrain@gmail.com</a><br>
+        <strong>Phone:</strong> 
+        <a href="tel:‪+919964001727‬">‪+91 99640 01727‬</a>
+      </p>
+      
+      <h3>Registration Details</h3>
+      <ul>
+        <li><strong>SEBI Registration:</strong> INH000022215</li>
+        <li><strong>BSE RA Enrollment No.:</strong> 6609</li>
+      </ul>
+      
+      <h3>Accessibility Nodal Officer</h3>
+      <p>
+        <strong>Name & Designation:</strong> Anupriya R (Compliance Officer)<br>
+        <strong>Email:</strong> 
+        <a href="mailto:valuationmantracompliance@gmail.com">
+          valuationmantracompliance@gmail.com
+        </a><br>
+        <strong>Phone:</strong> 
+        <a href="tel:‪+919972120202‬">‪+91 99721 20202‬</a>
+      </p>
+    </div>
+	</div>
+	</div>
+</section>
+
+<section id="contacts" aria-labelledby="contacts-title">
+  <div class="container">
+    <h3 id="contacts-title">Contact Directory</h3>
+
+    
+	<section id="contacts" class="webcontact">
+    <div class="table">
+    <!-- Header Row -->
+    <div class="table-row table-header">
+      <div class="table-cell">Details of Designation</div>
+      <div class="table-cell">Contact Person Name</div>
+      <div class="table-cell">Address</div>
+      <div class="table-cell">Contact No.</div>
+      <div class="table-cell">Email-ID</div>
+      <div class="table-cell">Working Hours</div>
+    </div>
+
+    <!-- Row 1 -->
+    <div class="table-row">
+      <div class="table-cell">Customer Care</div>
+      <div class="table-cell"></div>
+      <div class="table-cell"></div>
+      <div class="table-cell"></div>
+      <div class="table-cell"></div>
+      <div class="table-cell"></div>
+    </div>
+
+    <!-- Row 2 -->
+    <div class="table-row">
+      <div class="table-cell">Head of Customer Care</div>
+      <div class="table-cell"></div>
+      <div class="table-cell"></div>
+      <div class="table-cell"></div>
+      <div class="table-cell"></div>
+      <div class="table-cell"></div>
+    </div>
+
+    <!-- Row 3 -->
+    <div class="table-row">
+      <div class="table-cell">Compliance Officer</div>
+      <div class="table-cell">Anupriya R</div>
+      <div class="table-cell">Flat No.5, Building No.16, 4th Main, Begur Road, Bengaluru, Karnataka 560068</div>
+      <div class="table-cell"><a href="tel:‪+919972120202‬">‪+91 99721 20202‬</a></div>
+      <div class="table-cell"><a href="mailto:valuationmantracompliance@gmail.com">valuationmantracompliance@gmail.com</a></div>
+      <div class="table-cell"></div>
+    </div>
+
+    <!-- Row 4 -->
+    <div class="table-row">
+      <div class="table-cell">CEO</div>
+      <div class="table-cell">Naresh Kumar P</div>
+      <div class="table-cell">Flat No.5, Building No.16, 4th Main, Begur Road, Bengaluru, Karnataka 560068</div>
+      <div class="table-cell"><a href="tel:‪+919964001727‬">‪+91 99640 01727‬</a></div>
+      <div class="table-cell"><a href="mailto:nareshbahrain@gmail.com">nareshbahrain@gmail.com</a></div>
+      <div class="table-cell"></div>
+    </div>
+
+    <!-- Row 5 -->
+    <div class="table-row">
+      <div class="table-cell">Principal Officer</div>
+      <div class="table-cell">Naresh Kumar P</div>
+      <div class="table-cell">Flat No.5, Building No.16, 4th Main, Begur Road, Bengaluru, Karnataka 560068</div>
+      <div class="table-cell"><a href="tel:‪+919964001727‬">‪+91 99640 01727‬</a></div>
+      <div class="table-cell"><a href="mailto:nareshbahrain@gmail.com">nareshbahrain@gmail.com</a></div>
+      <div class="table-cell"></div>
+    </div>
+  </div>
+</section>
+	
+	<!-- Mobile Card -->
+  
+  <section id="contacts" class="mobilecontact">
+  <h2>Contact Directory</h2>
+
+  <div class="card">
+    <div class="field"><strong>Details of Designation:</strong> Customer Care</div>
+    <div class="field"><strong>Contact Person Name:</strong> —</div>
+    <div class="field"><strong>Address:</strong> —</div>
+    <div class="field"><strong>Contact No.:</strong> —</div>
+    <div class="field"><strong>Email-ID:</strong> —</div>
+    <div class="field"><strong>Working Hours:</strong> —</div>
+  </div>
+
+  <div class="card">
+    <div class="field"><strong>Details of Designation:</strong> Head of Customer Care</div>
+    <div class="field"><strong>Contact Person Name:</strong> —</div>
+    <div class="field"><strong>Address:</strong> —</div>
+    <div class="field"><strong>Contact No.:</strong> —</div>
+    <div class="field"><strong>Email-ID:</strong> —</div>
+    <div class="field"><strong>Working Hours:</strong> —</div>
+  </div>
+
+  <div class="card">
+    <div class="field"><strong>Details of Designation:</strong> Compliance Officer</div>
+    <div class="field"><strong>Contact Person Name:</strong> Anupriya R</div>
+    <div class="field"><strong>Address:</strong> Flat No.5, Building No.16, 4th Main, Begur Road, Bengaluru, Karnataka 560068</div>
+    <div class="field"><strong>Contact No.:</strong> <a href="tel:+919972120202">+91 99721 20202</a></div>
+    <div class="field"><strong>Email-ID:</strong> <a href="mailto:valuationmantracompliance@gmail.com">valuationmantracompliance@gmail.com</a></div>
+    <div class="field"><strong>Working Hours:</strong> —</div>
+  </div>
+
+  <div class="card">
+    <div class="field"><strong>Details of Designation:</strong> CEO</div>
+    <div class="field"><strong>Contact Person Name:</strong> Naresh Kumar P</div>
+    <div class="field"><strong>Address:</strong> Flat No.5, Building No.16, 4th Main, Begur Road, Bengaluru, Karnataka 560068</div>
+    <div class="field"><strong>Contact No.:</strong> <a href="tel:+919964001727">+91 99640 01727</a></div>
+    <div class="field"><strong>Email-ID:</strong> <a href="mailto:nareshbahrain@gmail.com">nareshbahrain@gmail.com</a></div>
+    <div class="field"><strong>Working Hours:</strong> —</div>
+  </div>
+
+  <div class="card">
+    <div class="field"><strong>Details of Designation:</strong> Principal Officer</div>
+    <div class="field"><strong>Contact Person Name:</strong> Naresh Kumar P</div>
+    <div class="field"><strong>Address:</strong> Flat No.5, Building No.16, 4th Main, Begur Road, Bengaluru, Karnataka 560068</div>
+    <div class="field"><strong>Contact No.:</strong> <a href="tel:+919964001727">+91 99640 01727</a></div>
+    <div class="field"><strong>Email-ID:</strong> <a href="mailto:nareshbahrain@gmail.com">nareshbahrain@gmail.com</a></div>
+    <div class="field"><strong>Working Hours:</strong> —</div>
+  </div>
+</section>
+	<!-- Mobile Card -->
+	
+	
+
+<style>
+
+</style>
+	
+  </div>
+</section>
+		</div>
+		<section>
+		  <div class="container" id="mailform" >
+        <form class="card" onsubmit="event.preventDefault(); alert('Form submitted! (demo)')" aria-label="Contact form">
+          <div style="display:grid;gap:12px">
+            <label>
+              <span>Name</span><br>
+              <input required type="text" name="name" style="width:100%;padding:12px;border-radius:12px;border:1px solid color-mix(in hsl, var(--muted) 30%, transparent);background:transparent;color:var(--text)">
+            </label>
+            <label>
+              <span>Email</span><br>
+              <input required type="email" name="email" style="width:100%;padding:12px;border-radius:12px;border:1px solid color-mix(in hsl, var(--muted) 30%, transparent);background:transparent;color:var(--text)">
+            </label>
+            <label>
+              <span>Message</span><br>
+              <textarea rows="4" name="message" style="width:100%;padding:12px;border-radius:12px;border:1px solid color-mix(in hsl, var(--muted) 30%, transparent);background:transparent;color:var(--text)"></textarea>
+            </label>
+            <button class="cta" type="submit" style="width:max-content">Send</button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container foot">
+      <small>© <span id="year"></span>Valuation Manthr. All rights reserved.</small>
+      <div style="display:flex;gap:14px">
+        <a href="#home">Top ↑</a>
+        <a href="#AboutMe">About</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    const btn = document.getElementById('menuButton');
+    const menu = document.getElementById('menu');
+    btn.addEventListener('click', () => {
+      const open = menu.classList.toggle('open');
+      btn.setAttribute('aria-expanded', String(open));
+    });
+    // Close on nav click (mobile)
+    menu.addEventListener('click', e => {
+      if(e.target.tagName === 'A'){
+        menu.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+      }
+    });
+    // Year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
