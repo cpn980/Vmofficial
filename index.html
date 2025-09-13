@@ -33,6 +33,7 @@
     html{scroll-behavior:smooth}
     body{
       margin:0;
+	    font-size: 17px; /* was ~16px by default */
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
       color:var(--text);
       background: radial-gradient(1200px 600px at 70% -10%, rgba(106,163,255,.15), transparent 60%), var(--bg);
@@ -183,7 +184,22 @@
 	   .mobilecomplaints { display:block; }
     }
 
+.hand_bullet {
+  list-style: none;
+  padding-left: 0;
+}
 
+.hand_bullet li {
+  margin: 10px 0;
+  padding-left: 1.5em;
+  position: relative;
+}
+
+.hand_bullet li::before {
+  content: "👉";   /* pointing hand emoji */
+  position: absolute;
+  left: 0;
+}
     
 	
 	
@@ -267,7 +283,7 @@ As an investor, when a stock falls or corrects, do you feel confused about where
 												
 <b>What Sets us apart & how will buying stocks low at right valuation help you ?</b>
  
-                    <ol class="square_bullet">
+               <!----     <ol class="square_bullet">
 									<li class="square_bullet">We assign precise numbers to commonly used terms like ‘buy low’, ‘buy value’, ‘buy right’ & ‘buy the dip’ – bringing clarity. All these terms make sense only when its assigned a number/price & is actionable. </li>
 									<li class="square_bullet">When you buy at low valuations, your downside is limited & your upside is infinite.</li>
 									<li class="square_bullet">Starting valuations matter as they form the foundation of long term investment outcomes.</li>
@@ -277,7 +293,19 @@ As an investor, when a stock falls or corrects, do you feel confused about where
 									<li class="square_bullet">Even if you are buying dividend stocks, buy low so that you get both capital appreciation & dividends.</li>
 									<li class="square_bullet">Multibaggers are not found random; they are the result of following a system, process, buying low & allowing time to do the rest through compounding.</li>
 									
-								</ol>
+								</ol>-->
+								
+								<ul class="hand_bullet">
+  <li>We assign precise numbers to commonly used terms like ‘buy low’, ‘buy value’, ‘buy right’ & ‘buy the dip’ – bringing clarity. All these terms make sense only when its assigned a number/price & is actionable.</li>
+  <li>When you buy at low valuations, your downside is limited & your upside is infinite.</li>
+  <li>Starting valuations matter as they form the foundation of long term investment outcomes.</li>
+  <li>You can allocate bigger capital when your know your downside is capped.</li>
+  <li>Risk management begins with the price you pay – buying low is the first layer of protection.</li>
+  <li>Capital preservation is paramount & buying low plays a crucial role in safeguarding your money.</li>
+  <li>Even if you are buying dividend stocks, buy low so that you get both capital appreciation & dividends.</li>
+  <li>Multibaggers are not found random; they are the result of following a system, process, buying low & allowing time to do the rest through compounding.</li>
+</ul>
+
 								
 											
 											</div>
