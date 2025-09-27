@@ -215,6 +215,36 @@
     footer{border-top:1px solid color-mix(in hsl, var(--muted) 25%, transparent);padding:28px 0;margin-top:40px;background:color-mix(in hsl, var(--surface) 95%, transparent)}
     .foot{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
     .foot small{color:var(--muted)}
+	
+	/* Force all text to black */
+body, p, h1, h2, h3, h4, h5, h6, li, label, input, textarea, strong, small, span, div {
+  color: #000 !important;
+}
+/* Media & Blogs responsive fix */
+@media (max-width: 768px) {
+  .grid_2Coloumn {
+    grid-template-columns: 1fr !important;
+    gap: 16px;
+    margin: 10px 0;
+  }
+
+  .blog_Cards img,
+  .blog_Cards iframe {
+    width: 100% !important;
+    height: auto !important;
+  }
+}
+/* Contact Section responsive fix */
+@media (max-width: 768px) {
+  .webcontact { display: none !important; }
+  .mobilecontact { display: block !important; }
+  #contacts { padding: 0 10px; }
+  .mobilecontact .card {
+    margin-bottom: 16px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  }
+}
+
   </style>
 </head>
 <body>
