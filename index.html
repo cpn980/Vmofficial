@@ -216,10 +216,28 @@
     .foot{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
     .foot small{color:var(--muted)}
 	
-	/* Force all text to black */
+/* Override theme colors: always white background + black text */
+:root {
+  --bg: #ffffff !important;
+  --surface: #ffffff !important;
+  --text: #000000 !important;
+  --muted: #000000 !important;
+}
+
+/* Ensure all content text is black */
 body, p, h1, h2, h3, h4, h5, h6, li, label, input, textarea, strong, small, span, div {
   color: #000 !important;
+  background: #fff !important;
 }
+
+/* Keep hyperlinks blue unless hovered */
+a { 
+  color: #185bd8 !important; 
+}
+a:hover { 
+  text-decoration: underline !important; 
+}
+
 /* Media & Blogs responsive fix */
 @media (max-width: 768px) {
   .grid_2Coloumn {
