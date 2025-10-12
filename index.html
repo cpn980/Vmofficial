@@ -3,6 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+ 
   <title>Valuation Mantra</title>
   <style>
     :root{
@@ -263,6 +265,49 @@ a:hover {
   }
 }
 
+/* Hover effect for WhatsApp and Twitter links */
+a[href*="wa.me"]:hover i {
+  color: #128C7E; /* darker WhatsApp */
+}
+a[href*="x.com"]:hover i {
+  color: #0d8ce0; /* darker Twitter */
+}
+
+
+/* Social media icons - native color style */
+.social-icons {
+  margin-top: 10px;
+  display: flex;
+  gap: 14px;
+}
+
+.social-icons a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background-color: transparent; /* No background */
+  color: inherit;
+  font-size: 26px;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
+
+/* Icon colors */
+.social-icons a[href*="wa.me"] i {
+  color: #25D366; /* WhatsApp green */
+}
+
+.social-icons a[href*="x.com"] i {
+  color: #1DA1F2; /* Twitter blue */
+}
+
+.social-icons a:hover {
+  transform: scale(1.15);
+}
+
   </style>
 </head>
 <body>
@@ -330,10 +375,15 @@ a:hover {
           <h2 id="pricing-title">Offerings</h2>
           <h3>We offer low valuation for NSE200 stocks for investing.</h3>
 		 <!----  <p><strong>What can we do for you ? </strong><br>-->
-		  <p><h4>What can we do for you ? </h4><br>
+		 <h4 style="margin-bottom:8px;">What can we do for you ?</h4>
+<p style="margin-top:0;">
 As an investor, when a stock falls or corrects, do you feel confused about where to buy ? You cannot keep buying a stock endlessly because money is always finite. Alternatively, whenever you want to buy a stock, do you simply purchase it at the current market price without giving importance to valuations ? In both cases, we can help you buy right by giving you a narrow price band that is low and keeps your downside limited.  </p>
         </div>
-        
+       
+
+
+
+	   
       </div>
 	  <div class="container offering_wrap list_item">
 												
@@ -557,7 +607,14 @@ As an investor, when a stock falls or corrects, do you feel confused about where
       <div class="table-cell">0</div>
    
     </div>
+     <div class="table-row">
+      <div class="table-cell">Sep 2025</div>
+      <div class="table-cell">0</div>
+      <div class="table-cell">0</div>
+      <div class="table-cell">0</div>
+      <div class="table-cell">0</div>
    
+    </div>
   </div>
 </section>
 <section class="table-section mobilecomplaints">
@@ -630,7 +687,28 @@ As an investor, when a stock falls or corrects, do you feel confused about where
         <a href="mailto:nareshbahrain@gmail.com">nareshbahrain@gmail.com</a><br>
         <strong>Phone:</strong> 
         <a href="tel:‪+919964001727‬">‪+91 99640 01727‬</a>
+
+
+<!-- Contact social links with native icons -->
+<p style="margin-top:12px;">
+  <strong>Chat with Us:</strong>
+  <a href="https://wa.me/917259282826" target="_blank" style="display:inline-flex;align-items:center;gap:6px;text-decoration:none;">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" width="22" height="22">
+    <span style="color:#25D366;">WhatsApp</span>
+  </a>
+  <br>
+  <strong>Twitter:</strong>
+  <a href="https://x.com/nareshbahrain" target="_blank" style="display:inline-flex;align-items:center;gap:6px;text-decoration:none;margin-top:6px;">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/X_logo_2023_original.svg" alt="Twitter" width="22" height="22">
+    <span style="color:#1DA1F2;">@nareshbahrain</span>
+  </a>
+</p>
+
+
       </p>
+	  
+
+
       
       <h3>Registration Details</h3>
       <ul>
@@ -646,7 +724,7 @@ As an investor, when a stock falls or corrects, do you feel confused about where
           valuationmantracompliance@gmail.com
         </a><br>
         <strong>Phone:</strong> 
-        <a href="tel:‪+919972120202‬">‪+91 72592 82826</a>
+        <a href="tel:‪+917259282826">‪+91 72592 82826</a>
       </p>
     </div>
 	</div>
@@ -656,7 +734,7 @@ As an investor, when a stock falls or corrects, do you feel confused about where
 <section id="contacts" aria-labelledby="contacts-title">
   <div class="container">
     <h3 id="contacts-title">Contact Directory</h3>
-
+	
     
 	<section id="contacts" class="webcontact">
     <div class="table">
@@ -695,7 +773,7 @@ As an investor, when a stock falls or corrects, do you feel confused about where
       <div class="table-cell">Compliance Officer</div>
       <div class="table-cell">Anupriya R</div>
       <div class="table-cell">Flat No.5, Building No.16, 4th Main, Begur Road, Bengaluru, Karnataka 560068</div>
-      <div class="table-cell"><a href="tel:‪+919972120202‬">‪+91 99721 20202‬</a></div>
+      <div class="table-cell"><a href="tel:‪+917259282826‬">‪+91 72592 82826‬</a></div>
       <div class="table-cell"><a href="mailto:valuationmantracompliance@gmail.com">valuationmantracompliance@gmail.com</a></div>
       <div class="table-cell"></div>
     </div>
@@ -729,29 +807,29 @@ As an investor, when a stock falls or corrects, do you feel confused about where
 
   <div class="card">
     <div class="field"><strong>Details of Designation:</strong> Customer Care</div>
-    <div class="field"><strong>Contact Person Name:</strong> —</div>
-    <div class="field"><strong>Address:</strong> —</div>
-    <div class="field"><strong>Contact No.:</strong> —</div>
-    <div class="field"><strong>Email-ID:</strong> —</div>
-    <div class="field"><strong>Working Hours:</strong> —</div>
+    <div class="field"><strong>Contact Person Name:</strong> </div>
+    <div class="field"><strong>Address:</strong> </div>
+    <div class="field"><strong>Contact No.:</strong> </div>
+    <div class="field"><strong>Email-ID:</strong> </div>
+    <div class="field"><strong>Working Hours:</strong> </div>
   </div>
 
   <div class="card">
     <div class="field"><strong>Details of Designation:</strong> Head of Customer Care</div>
-    <div class="field"><strong>Contact Person Name:</strong> —</div>
-    <div class="field"><strong>Address:</strong> —</div>
-    <div class="field"><strong>Contact No.:</strong> —</div>
-    <div class="field"><strong>Email-ID:</strong> —</div>
-    <div class="field"><strong>Working Hours:</strong> —</div>
+    <div class="field"><strong>Contact Person Name:</strong> </div>
+    <div class="field"><strong>Address:</strong> </div>
+    <div class="field"><strong>Contact No.:</strong> </div>
+    <div class="field"><strong>Email-ID:</strong> </div>
+    <div class="field"><strong>Working Hours:</strong> </div>
   </div>
 
   <div class="card">
     <div class="field"><strong>Details of Designation:</strong> Compliance Officer</div>
     <div class="field"><strong>Contact Person Name:</strong> Anupriya R</div>
     <div class="field"><strong>Address:</strong> Flat No.5, Building No.16, 4th Main, Begur Road, Bengaluru, Karnataka 560068</div>
-    <div class="field"><strong>Contact No.:</strong> <a href="tel:+919972120202">+91 99721 20202</a></div>
+    <div class="field"><strong>Contact No.:</strong> <a href="tel:+917259282826">+91 72592 82826</a></div>
     <div class="field"><strong>Email-ID:</strong> <a href="mailto:valuationmantracompliance@gmail.com">valuationmantracompliance@gmail.com</a></div>
-    <div class="field"><strong>Working Hours:</strong> —</div>
+    <div class="field"><strong>Working Hours:</strong> </div>
   </div>
 
   <div class="card">
@@ -760,7 +838,7 @@ As an investor, when a stock falls or corrects, do you feel confused about where
     <div class="field"><strong>Address:</strong> Flat No.5, Building No.16, 4th Main, Begur Road, Bengaluru, Karnataka 560068</div>
     <div class="field"><strong>Contact No.:</strong> <a href="tel:+919964001727">+91 99640 01727</a></div>
     <div class="field"><strong>Email-ID:</strong> <a href="mailto:nareshbahrain@gmail.com">nareshbahrain@gmail.com</a></div>
-    <div class="field"><strong>Working Hours:</strong> —</div>
+    <div class="field"><strong>Working Hours:</strong> </div>
   </div>
 
   <div class="card">
@@ -769,13 +847,13 @@ As an investor, when a stock falls or corrects, do you feel confused about where
     <div class="field"><strong>Address:</strong> Flat No.5, Building No.16, 4th Main, Begur Road, Bengaluru, Karnataka 560068</div>
     <div class="field"><strong>Contact No.:</strong> <a href="tel:+919964001727">+91 99640 01727</a></div>
     <div class="field"><strong>Email-ID:</strong> <a href="mailto:nareshbahrain@gmail.com">nareshbahrain@gmail.com</a></div>
-    <div class="field"><strong>Working Hours:</strong> —</div>
+    <div class="field"><strong>Working Hours:</strong> </div>
   </div>
 </section>
 	<!-- Mobile Card -->
 	
 	
-
+	<!--
 <style>
 
 </style>
@@ -803,7 +881,7 @@ As an investor, when a stock falls or corrects, do you feel confused about where
           </div>
         </form>
       </div>
-    </section>
+    </section> -->
   </main>
 
   <footer>
