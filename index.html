@@ -35,7 +35,7 @@
     html{scroll-behavior:smooth}
     body{
       margin:0;
-	    font-size: 17px; /* was ~16px by default */
+	    font-size: 17px;
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
       color:var(--text);
       background: radial-gradient(1200px 600px at 70% -10%, rgba(106,163,255,.15), transparent 60%), var(--bg);
@@ -106,7 +106,6 @@
 	/* Table */
 	
     table { margin:0px; padding:0px; }
-	/*.complaints_table { margin: 40px 0px; }*/
 	.complaints_table { margin: 10px 0px !important; }
 	.contactwrap { width:100%; }
 	.singlegrid {grid-template-columns:1fr; margin:0px auto; width:500px; border:1px solid grey; padding:24px; background-color:#FFF;}
@@ -114,7 +113,7 @@
    .table { display:table; width:100%; border-collapse:collapse;}
    .table-row { display: table-row;}
    .table-header { font-weight: bold; background: #a9a9a9;}
-   .table-cell {display:table-cell; border: 1px solid #ddd; padding: 8px; text-align: left;}
+   .table-cell {display:table-cell; border: 1px solid #ddd; padding: 8px; text-align: left;}
 	
 	#contacts {    max-width: 1500px;     margin: 20px auto;    font-family: Arial, sans-serif;    padding: 10px;  }
     #contacts h2 {    margin-bottom: 16px;    text-align: center;  }
@@ -156,6 +155,16 @@
 	   .webcomplaints { display:block; }
 	   .mobilecomplaints { display:none; }
 	   
+	   /* Make table scrollable on smaller screens */
+	   @media (max-width: 920px) {
+	     .table-section {
+	       overflow-x: auto;
+	       -webkit-overflow-scrolling: touch;
+	     }
+	     .table {
+	       min-width: 600px;
+	     }
+	   }
 	  
 	
 	#mailform { max-width:500px; margin:0px auto; } 
@@ -180,11 +189,15 @@
 	  
 	   section { padding:10px 0px; margin:0px;}
 	   #contacts {    max-width: 500px;    margin: 20px auto;    font-family: Arial, sans-serif;    padding: 0px;  }
-	   .webcontact { display:none;}
-	   .mobilecontact {display:block }
+	   .webcontact { display:none !important;}
+	   .mobilecontact {display:block !important; }
 	   .field strong {      display: block;      width: auto;      margin-bottom: 4px;      color: #000;    }
-	   .webcomplaints { display:none; }
-	   .mobilecomplaints { display:block; }
+	   .webcomplaints { display:none !important; }
+	   .mobilecomplaints { display:block !important; }
+	   
+	   .table-section {
+	     padding: 0 10px;
+	   }
     }
 
 .hand_bullet {
@@ -199,19 +212,19 @@
 }
 
 .hand_bullet li::before {
-  content: "👉";   /* pointing hand emoji */
+  content: "👉";
   position: absolute;
   left: 0;
 }
     
 .home-caption {
   font-size: 1.2em;
-  font-weight: bold;   /* ensures bold */
-  font-style: italic;  /* ensures italics */
-  color: var(--muted); /* soft theme color */
+  font-weight: bold;
+  font-style: italic;
+  color: var(--muted);
   margin-top: -10px;
   margin-bottom: 20px;
-  text-align: left;    /* change to center if you prefer */
+  text-align: left;
 }
 
     /* Footer */
@@ -268,10 +281,10 @@ a:hover {
 
 /* Hover effect for WhatsApp and Twitter links */
 a[href*="wa.me"]:hover i {
-  color: #128C7E; /* darker WhatsApp */
+  color: #128C7E;
 }
 a[href*="x.com"]:hover i {
-  color: #0d8ce0; /* darker Twitter */
+  color: #0d8ce0;
 }
 
 
@@ -289,7 +302,7 @@ a[href*="x.com"]:hover i {
   width: 42px;
   height: 42px;
   border-radius: 50%;
-  background-color: transparent; /* No background */
+  background-color: transparent;
   color: inherit;
   font-size: 26px;
   text-decoration: none;
@@ -298,15 +311,31 @@ a[href*="x.com"]:hover i {
 
 /* Icon colors */
 .social-icons a[href*="wa.me"] i {
-  color: #25D366; /* WhatsApp green */
+  color: #25D366;
 }
 
 .social-icons a[href*="x.com"] i {
-  color: #1DA1F2; /* Twitter blue */
+  color: #1DA1F2;
 }
 
 .social-icons a:hover {
   transform: scale(1.15);
+}
+.grievance-info {
+  font-size: 15px;
+  line-height: 1.6;
+  width: 100 percent;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.grievance-info p {
+  margin: 0 0 12px 0;
+  word-wrap: break-word;
+}
+
+.grievance-info a {
+  word-break: break-all;
 }
 
 
@@ -327,7 +356,6 @@ a[href*="x.com"]:hover i {
 		<a href="#regulatory">Regulatory</a>
 		<a href="#complaints">Complaints</a>
         <a href="#contact">Contact</a>
-       <!-- <a class="cta" href="#contact">Get Started</a> -->
       </nav>
     </div>
   </header>
@@ -345,7 +373,7 @@ a[href*="x.com"]:hover i {
           <h1 id="home-title" >VALUATION MANTRA</h1>
 		  <h2 class="home-caption"><b><i>Decoding the Right Price to Invest</i></b></h2>
           <p class="style2">
-				Everything you want to buy has an MRP, but what about stocks? Advice like “buy the dip” or “buy low” or “buy right” is meaningless without a clear price. We provide low entry points to help you buy quality stocks at the right valuations with minimal downside. When your downside is limited, upside is infinite. buying at a low price also gives you peace of mind.
+				Everything you want to buy has an MRP, but what about stocks? Advice like "buy the dip" or "buy low" or "buy right" is meaningless without a clear price. We provide low entry points to help you buy quality stocks at the right valuations with minimal downside. When your downside is limited, upside is infinite. buying at a low price also gives you peace of mind.
 		  </p>
         </div>
         </div>
@@ -358,9 +386,9 @@ a[href*="x.com"]:hover i {
 	  <div>
         <h2 id="features-title">About</h2>
 		 <div  style="margin-top:10px" class="profile_image_left"><img src="./profile.jpg" alt="VALUATION MANTRA" width="80%"></div>
-        <p>Naresh Nambisan is the founder of Valuation Mantra and lives by the principle “Valuation is the Mantra". He believes in following a system and process come what may.  As NISM-certified, SEBI-registered research analyst, he brings 17 years of stockmarket experience as a full-time trader and investor. His philosophy centres on buying businesses at the right valuation, combining disciplined analysis with a deep respect for risk and reward.</p> <br/>
+        <p>Naresh Nambisan is the founder of Valuation Mantra and lives by the principle "Valuation is the Mantra". He believes in following a system and process come what may.  As NISM-certified, SEBI-registered research analyst, he brings 17 years of stockmarket experience as a full-time trader and investor. His philosophy centres on buying businesses at the right valuation, combining disciplined analysis with a deep respect for risk and reward.</p> <br/>
         <p>
-        Early in his journey, Naresh recognised the critical role of risk management and set out to develop a systematic way to identify fair and low valuations. To find right valuation, he uses technical analysis. After years of rigorous work, extensive chart study, and thorough back testing, he created Virgin Price Action. This framework is designed to spot low-risk entry points by focusing on price structures where the downside is limited and the upside potential is substantial. Virgin Price Action is versatile and applies across equities, bonds, commodities, and currencies, helping investors buy low with greater confidence and clarity. </p>
+        Early in his journey, Naresh recognised the critical role of risk management and set out to develop a systematic way to identify fair and low valuations. To find right valuation, he uses technical analysis. After years of rigorous work, extensive chart study, and thorough back testing, he created Virgin Price Action. This framework is designed to spot low-risk entry points by focusing on price structures where the downside is limited and the upside potential is substantial. Virgin Price Action is versatile and applies across equities, bonds, commodities, and currencies, helping investors buy low with greater confidence and clarity. </p>
 		</div>
 		 <div  style="margin-top:70px" class="profile_image"><img src="./profile.jpg" alt="VALUATION MANTRA" width="200">
 	  </div>
@@ -376,35 +404,18 @@ a[href*="x.com"]:hover i {
         <div>
           <h2 id="pricing-title">Our Expertise</h2>
           <h3>We offer low valuation for NSE200 stocks for investing.</h3>
-		 <!----  <p><strong>What can we do for you ? </strong><br>-->
 		 <h4 style="margin-bottom:8px;">What can we do for you ?</h4>
 <p style="margin-top:0;">
-As an investor, when a stock falls or corrects, do you feel confused about where to buy ? You cannot keep buying a stock endlessly because money is always finite. Alternatively, whenever you want to buy a stock, do you simply purchase it at the current market price without giving importance to valuations ? In both cases, we can help you buy right by giving you a narrow price band that is low and keeps your downside limited.  </p>
+As an investor, when a stock falls or corrects, do you feel confused about where to buy ? You cannot keep buying a stock endlessly because money is always finite. Alternatively, whenever you want to buy a stock, do you simply purchase it at the current market price without giving importance to valuations ? In both cases, we can help you buy right by giving you a narrow price band that is low and keeps your downside limited.  </p>
         </div>
        
-
-
-
-	   
       </div>
 	  <div class="container offering_wrap list_item">
 												
 <b>What Sets us apart & how will buying stocks low at right valuation help you ?</b>
  
-               <!----     <ol class="square_bullet">
-									<li class="square_bullet">We assign precise numbers to commonly used terms like ‘buy low’, ‘buy value’, ‘buy right’ & ‘buy the dip’ – bringing clarity. All these terms make sense only when its assigned a number/price & is actionable. </li>
-									<li class="square_bullet">When you buy at low valuations, your downside is limited & your upside is infinite.</li>
-									<li class="square_bullet">Starting valuations matter as they form the foundation of long term investment outcomes.</li>
-									<li class="square_bullet">You can allocate bigger capital when your know your downside is capped.</li>
-									<li class="square_bullet">Risk management begins with the price you pay – buying low is the first layer of protection.</li>
-									<li class="square_bullet">Capital preservation is paramount & buying low plays a crucial role in safeguarding your money.</li>
-									<li class="square_bullet">Even if you are buying dividend stocks, buy low so that you get both capital appreciation & dividends.</li>
-									<li class="square_bullet">Multibaggers are not found random; they are the result of following a system, process, buying low & allowing time to do the rest through compounding.</li>
-									
-								</ol>-->
-								
-								<ul class="hand_bullet">
-  <li>We assign precise numbers to commonly used terms like ‘buy low’, ‘buy value’, ‘buy right’ & ‘buy the dip’ – bringing clarity. All these terms make sense only when its assigned a number/price & is actionable.</li>
+<ul class="hand_bullet">
+  <li>We assign precise numbers to commonly used terms like 'buy low', 'buy value', 'buy right' & 'buy the dip' – bringing clarity. All these terms make sense only when its assigned a number/price & is actionable.</li>
   <li>When you buy at low valuations, your downside is limited & your upside is infinite.</li>
   <li>Starting valuations matter as they form the foundation of long term investment outcomes.</li>
   <li>You can allocate bigger capital when your know your downside is capped.</li>
@@ -413,10 +424,8 @@ As an investor, when a stock falls or corrects, do you feel confused about where
   <li>Even if you are buying dividend stocks, buy low so that you get both capital appreciation & dividends.</li>
   <li>Multibaggers are not found random; they are the result of following a system, process, buying low & allowing time to do the rest through compounding.</li>
 </ul>
-
 								
-											
-											</div>
+</div>
     </section>
 	
 	
@@ -425,13 +434,12 @@ As an investor, when a stock falls or corrects, do you feel confused about where
     <section id="blogs" aria-labelledby="Media-Blogs">
       <div class="container Blogwrap">
   <h2 id="about-title">Media & Blogs</h2>
-          <!-- <p>Tell your story, mission, and team. Keep it short and scannable.</p> -->
         </div>
         <div class="container" >
         <div class="grid_2Coloumn" >
           <article class="card blog_Cards"><h3>Moneycontrol Article</h3>
 		  <p><img src="./moneycontrol.jpg" alt="Money Control " width="480" height="200"><br>
-           Naresh Nambisan: Catching falling knives to trade for a living
+           Naresh Nambisan: Catching falling knives to trade for a living
 		  </p> <br> <a href="https://www.moneycontrol.com/news/business/markets/naresh-nambisan-catching-falling-knives-to-trade-for-a-living-4254171.html ">Read Article </a> 
 		 		  </article>
 				            <article class="card blog_Cards"><h3>Naresh Nambisan Blog</h3>
@@ -544,7 +552,7 @@ As an investor, when a stock falls or corrects, do you feel confused about where
 </section>
 
 
-<section class="table-section mobilecomplaints">
+<div class="mobilecomplaints">
  
   <!-- Card 1 -->
   <div class="card">
@@ -585,7 +593,7 @@ As an investor, when a stock falls or corrects, do you feel confused about where
     <div class="field"><strong>Total Pending:</strong> 0</div>
     <div class="field"><strong>Pending &gt;3 months:</strong> 0</div>
   </div>
-</section>
+</div>
 
 </div>
 <div class="complaints_table">
@@ -627,7 +635,7 @@ As an investor, when a stock falls or corrects, do you feel confused about where
     </div>
   </div>
 </section>
-<section class="table-section mobilecomplaints">
+<div class="mobilecomplaints">
    <!-- Card 1 -->
   <div class="card">
     <div class="field"><strong>Month:</strong> Aug 2025</div>
@@ -635,9 +643,24 @@ As an investor, when a stock falls or corrects, do you feel confused about where
     <div class="field"><strong>Received:</strong> 0</div>
     <div class="field"><strong>Resolved:</strong> 0</div>
     <div class="field"><strong>Pending:</strong> 0</div>
+  </div>
+  
+  <div class="card">
+    <div class="field"><strong>Month:</strong> Sep 2025</div>
+    <div class="field"><strong>Carried Forward:</strong> 0</div>
+    <div class="field"><strong>Received:</strong> 0</div>
+    <div class="field"><strong>Resolved:</strong> 0</div>
     <div class="field"><strong>Pending:</strong> 0</div>
   </div>
-</section>
+  
+  <div class="card">
+    <div class="field"><strong>Month:</strong> Oct 2025</div>
+    <div class="field"><strong>Carried Forward:</strong> 0</div>
+    <div class="field"><strong>Received:</strong> 0</div>
+    <div class="field"><strong>Resolved:</strong> 0</div>
+    <div class="field"><strong>Pending:</strong> 0</div>
+  </div>
+</div>
 
 
         </div>
@@ -666,17 +689,16 @@ As an investor, when a stock falls or corrects, do you feel confused about where
    
   </div>
 </section>
-<section class="table-section mobilecomplaints">
+<div class="mobilecomplaints">
    <!-- Card 1 -->
   <div class="card">
-    <div class="field"><strong>Year:</strong> 2025 - 26</div>
+    <div class="field"><strong>Year:</strong> 2025-26</div>
     <div class="field"><strong>Carried Forward:</strong> 0</div>
     <div class="field"><strong>Received:</strong> 0</div>
     <div class="field"><strong>Resolved:</strong> 0</div>
     <div class="field"><strong>Pending:</strong> 0</div>
-    <div class="field"><strong>Pending:</strong> 0</div>
   </div>
-</section>
+</div>
 
 <section id="contacts" aria-labelledby="contacts-title">
   <div class="container">
@@ -736,7 +758,7 @@ As an investor, when a stock falls or corrects, do you feel confused about where
       <div class="table-cell">CEO</div>
       <div class="table-cell">Naresh Kumar P</div>
       <div class="table-cell">Flat No.5, Building No.16, 4th Main, Begur Road, Bengaluru, Karnataka 560068</div>
-      <div class="table-cell"><a href="tel:‪+919964001727‬">‪+91 99640 01727‬</a></div>
+      <div class="table-cell"><a href="tel:+919964001727">+91 99640 01727</a></div>
       <div class="table-cell"><a href="mailto:nareshbahrain@gmail.com">nareshbahrain@gmail.com</a></div>
        <div class="table-cell" style="white-space: normal; line-height: 1.2; padding-top: 4px; padding-bottom: 4px;">
   Mon – Fri<br>
@@ -749,7 +771,7 @@ As an investor, when a stock falls or corrects, do you feel confused about where
       <div class="table-cell">Principal Officer</div>
       <div class="table-cell">Naresh Kumar P</div>
       <div class="table-cell">Flat No.5, Building No.16, 4th Main, Begur Road, Bengaluru, Karnataka 560068</div>
-      <div class="table-cell"><a href="tel:‪+919964001727‬">‪+91 99640 01727‬</a></div>
+      <div class="table-cell"><a href="tel:+919964001727">+91 99640 01727</a></div>
       <div class="table-cell"><a href="mailto:nareshbahrain@gmail.com">nareshbahrain@gmail.com</a></div>
        <div class="table-cell" style="white-space: normal; line-height: 1.2; padding-top: 4px; padding-bottom: 4px;">
   Mon – Fri<br>
@@ -825,13 +847,23 @@ As an investor, when a stock falls or corrects, do you feel confused about where
   </div>
 </section>
 	<!-- Mobile Card -->   
-		
-<div style="font-size: 15px; line-height: 1.4;">
+	
+<div class="grievance-info">
   <p>We aim to resolve all grievances within 21 working days from the date of receipt.</p>
-  <p>If your grievance is not resolved within this timeframe, you can escalate it to SEBI’s SCORES Platform (SEBI Complaints Redress System).</p>
-  <p><strong>SCORES Portal:</strong> <a href="https://scores.sebi.gov.in" target="_blank">scores.sebi.gov.in</a></p>
-  <p>In case you are unsatisfied with the resolution provided through our support or the SCORES platform, you can access the Online Dispute Resolution (ODR) Portal.</p>
-  <p><strong>ODR Portal:</strong> <a href="https://smartodr.in" target="_blank">smartodr.in</a></p>
+
+  <p>If your grievance is not resolved within this timeframe, you can escalate it to SEBI's SCORES Platform
+     (SEBI Complaints Redress System).</p>
+
+  <p><strong>SCORES Portal:</strong>
+     <a href="https://scores.sebi.gov.in" target="_blank" rel="noopener">scores.sebi.gov.in</a>
+  </p>
+
+  <p>In case you are unsatisfied with the resolution provided through our support or the SCORES platform,
+     you can access the Online Dispute Resolution ODR Portal.</p>
+
+  <p><strong>ODR Portal:</strong>
+     <a href="https://smartodr.in" target="_blank" rel="noopener">smartodr.in</a>
+  </p>
 </div>
 
 
@@ -858,7 +890,7 @@ As an investor, when a stock falls or corrects, do you feel confused about where
         <strong>Email:</strong> 
         <a href="mailto:nareshbahrain@gmail.com">nareshbahrain@gmail.com</a><br>
         <strong>Phone:</strong> 
-        <a href="tel:‪+919964001727‬">‪+91 99640 01727‬</a>
+        <a href="tel:+919964001727">+91 99640 01727</a>
 
 
 <!-- Contact social links with native icons -->
@@ -898,45 +930,14 @@ As an investor, when a stock falls or corrects, do you feel confused about where
           valuationmantracompliance@gmail.com
         </a><br>
         <strong>Phone:</strong> 
-        <a href="tel:‪+917259282826">‪+91 72592 82826</a>
+        <a href="tel:+917259282826">+91 72592 82826</a>
       </p>
     </div>
 	</div>
 	</div>
 </section>
 
-
-	
-	
-	<!--
-<style>
-
-</style>
-	
-  </div>
-</section>
-		</div>
-		<section>
-		  <div class="container" id="mailform" >
-        <form class="card" onsubmit="event.preventDefault(); alert('Form submitted! (demo)')" aria-label="Contact form">
-          <div style="display:grid;gap:12px">
-            <label>
-              <span>Name</span><br>
-              <input required type="text" name="name" style="width:100%;padding:12px;border-radius:12px;border:1px solid color-mix(in hsl, var(--muted) 30%, transparent);background:transparent;color:var(--text)">
-            </label>
-            <label>
-              <span>Email</span><br>
-              <input required type="email" name="email" style="width:100%;padding:12px;border-radius:12px;border:1px solid color-mix(in hsl, var(--muted) 30%, transparent);background:transparent;color:var(--text)">
-            </label>
-            <label>
-              <span>Message</span><br>
-              <textarea rows="4" name="message" style="width:100%;padding:12px;border-radius:12px;border:1px solid color-mix(in hsl, var(--muted) 30%, transparent);background:transparent;color:var(--text)"></textarea>
-            </label>
-            <button class="cta" type="submit" style="width:max-content">Send</button>
-          </div>
-        </form>
-      </div>
-    </section> -->
+    </section>
   </main>
 
   <footer>
@@ -971,6 +972,7 @@ As an investor, when a stock falls or corrects, do you feel confused about where
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
   
-  <script src="https://cdn.ux4g.gov.in/accessibility-beta-v1.15/accessibility-widget.js" defer></script>
+  <script src="https://cdn.ux4g.gov.in/accessibility-beta-v1.15/accessibility-widget.js" defer></script>
 </body>
 </html>
+  
