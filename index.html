@@ -11,7 +11,7 @@
       --bg: #0b1020;
       --surface: #12172a;
       --text: #e8edf7;
-      --muted: #9aa4c7;
+      --muted: #4a5568;   /*--muted: #9aa4c7; fix for contrst 3:1*/
       --primary: #6aa3ff;
       --primary-cta: #4f8dff;
       --ring: rgba(106,163,255,.35);
@@ -113,7 +113,9 @@
 	
    .table { display:table; width:100%; border-collapse:collapse;}
    .table-row { display: table-row;}
-   .table-header { font-weight: bold; background: #a9a9a9;}
+  /* .table-header { font-weight: bold; background: #a9a9a9;} fix for 3:1 contrast*/
+   .table-header { font-weight: bold; background: #666 !important;   color: #fff !important;}
+
    .table-cell {display:table-cell; border: 1px solid #ddd; padding: 8px; text-align: left;}
 	
 	#contacts {    max-width: 1500px;     margin: 20px auto;    font-family: Arial, sans-serif;    padding: 10px;  }
@@ -208,7 +210,7 @@
   font-size: 1.2em;
   font-weight: bold;   /* ensures bold */
   font-style: italic;  /* ensures italics */
-  color: var(--muted); /* soft theme color */
+   color: #000 !important; /*color: var(--muted); fix for 3:1 contrast*/ /* soft theme color */
   margin-top: -10px;
   margin-bottom: 20px;
   text-align: left;    /* change to center if you prefer */
@@ -304,6 +306,9 @@ a[href*="x.com"]:hover i {
 .social-icons a[href*="x.com"] i {
   color: #1DA1F2; /* Twitter blue */
 }
+.social-icons i {
+  filter: brightness(0.75);
+}
 
 .social-icons a:hover {
   transform: scale(1.15);
@@ -332,6 +337,7 @@ a[href*="x.com"]:hover i {
   <a class="sr-only" href="#home">Skip to content</a>
 
   <header>
+  <h1 class="sr-only">Valuation Mantra</h1> <!-- fix for Page must contain a element--> 
     <div class="container nav" role="navigation" aria-label="Primary">
       <div class="brand"><div class="logo" aria-hidden="true" aria-label="VALUATION MANTRA"></div>VALUATION MANTRA</div>
       <button class="toggle" aria-expanded="false" aria-controls="menu" id="menuButton">☰ Menu</button>
