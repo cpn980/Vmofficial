@@ -1040,6 +1040,33 @@ As an investor, when a stock falls or corrects, do you feel confused about where
       </div>
     </div>
   </footer>
+<script defer='defer' src='https://cdn.jsdelivr.net/npm/sienna-accessibility@latest/dist/sienna-accessibility.umd.js'></script>
+<script>
+  (function () {
+
+    function fixLink() {
+      document
+        .querySelectorAll('a[href="https://accessibility-widget.pages.dev"]')
+        .forEach(link => {
+          link.setAttribute("href", "/");
+          link.removeAttribute("target"); // optional: keeps navigation in same tab
+          link.setAttribute("rel", "noopener"); // optional safety
+        });
+    }
+
+    // Run once after load
+    document.addEventListener("DOMContentLoaded", fixLink);
+
+    // Watch for dynamically added elements
+    const observer = new MutationObserver(fixLink);
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true
+    });
+
+  })();
+</script>
+
 
 	<!--
   <script>
