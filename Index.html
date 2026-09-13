@@ -1,15 +1,26 @@
 <!doctype html>
 <html lang="en">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RRE8YX0RV1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-RRE8YX0RV1');
+</script>
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+ 
   <title>Valuation Mantra</title>
   <style>
     :root{
       --bg: #0b1020;
       --surface: #12172a;
       --text: #e8edf7;
-      --muted: #9aa4c7;
+      --muted: #4a5568;   /*--muted: #9aa4c7; fix for contrst 3:1*/
       --primary: #6aa3ff;
       --primary-cta: #4f8dff;
       --ring: rgba(106,163,255,.35);
@@ -33,7 +44,10 @@
     html{scroll-behavior:smooth}
     body{
       margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+	    font-size: 17px; /* was ~16px by default */
+      /*font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";*/
+	  
+	  font-family: Georgia, "Times New Roman", Times, serif;
       color:var(--text);
       background: radial-gradient(1200px 600px at 70% -10%, rgba(106,163,255,.15), transparent 60%), var(--bg);
       line-height:1.6;
@@ -103,16 +117,52 @@
 	/* Table */
 	
     table { margin:0px; padding:0px; }
-	.complaints_table { margin: 40px 0px; }
+	/*.complaints_table { margin: 40px 0px; }*/
+	.complaints_table { margin: 10px 0px !important; }
 	.contactwrap { width:100%; }
 	.singlegrid {grid-template-columns:1fr; margin:0px auto; width:500px; border:1px solid grey; padding:24px; background-color:#FFF;}
 	
-   .table { display:table; width:100%; border-collapse:collapse;}
+   /*.table { display:table; width:100%; border-collapse:collapse;}*/
+   .table {
+    display: table;
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    }
+   
    .table-row { display: table-row;}
-   .table-header { font-weight: bold; background: #a9a9a9;}
+  /* .table-header { font-weight: bold; background: #a9a9a9;} fix for 3:1 contrast*/
+   .table-header { font-weight: bold; background: #666 !important;   color: #fff !important;}
+
    .table-cell {display:table-cell; border: 1px solid #ddd; padding: 8px; text-align: left;}
+
+   /* Grievance Redressal/Escalation Matrix table only: new font + equal-width columns */
+   #contacts .webcontact .table {
+     table-layout: fixed;
+   }
+   #contacts .webcontact .table-cell {
+     font-family: Georgia, "Times New Roman", Times, serif;
+     width: 16.6666%;
+     word-wrap: break-word;
+     overflow-wrap: break-word;
+   }
+   /* Same table, mobile card view */
+   #contacts .mobilecontact,
+   #contacts .mobilecontact .card,
+   #contacts .mobilecontact .field {
+     font-family: Georgia, "Times New Roman", Times, serif;
+   }
+   /* Section heading, both desktop and mobile */
+   #contacts-title,
+   #contacts .mobilecontact h3 {
+     font-family: Georgia, "Times New Roman", Times, serif;
+   }
+   /* Final "Contacts" section at the end of the page (Main Contact, Registration Details, Accessibility Nodal Officer) */
+   #contact {
+     font-family: Georgia, "Times New Roman", Times, serif;
+   }
 	
-	#contacts {    max-width: 900px;     margin: 20px auto;    font-family: Arial, sans-serif;    padding: 10px;  }
+	#contacts {    max-width: 1500px;     margin: 20px auto;    font-family: Arial, sans-serif;    padding: 10px;  }
     #contacts h2 {    margin-bottom: 16px;    text-align: center;  }
    .card {    border: 1px solid #ddd;    border-radius: 8px;    padding: 12px 16px;    margin-bottom: 16px;    box-shadow: 0 2px 6px rgba(0,0,0,0.05);    background: #fff;  }
    .field {    margin: 6px 0;  }
@@ -130,7 +180,8 @@
 	.table-section {
     max-width: 900px;
     margin: 20px auto;
-    font-family: Arial, sans-serif;
+    /*font-family: Arial, sans-serif;*/
+	font-family: Georgia, "Times New Roman", Times, serif;
     padding: 10px;
   }
   .table-section h2 { margin-bottom: 16px;    text-align: center;  }
@@ -183,28 +234,163 @@
 	   .mobilecomplaints { display:block; }
     }
 
+.hand_bullet {
+  list-style: none;
+  padding-left: 0;
+}
 
+.hand_bullet li {
+  margin: 10px 0;
+  padding-left: 1.5em;
+  position: relative;
+}
+
+.hand_bullet li::before {
+  content: "👉";   /* pointing hand emoji */
+  position: absolute;
+  left: 0;
+}
     
-	
-	
+.home-caption {
+  font-size: 1.2em;
+  font-weight: bold;   /* ensures bold */
+
+   color: #000 !important; /*color: var(--muted); fix for 3:1 contrast*/ /* soft theme color */
+  margin-top: -10px;
+  margin-bottom: 20px;
+  text-align: left;    /* change to center if you prefer */
+}
 
     /* Footer */
     footer{border-top:1px solid color-mix(in hsl, var(--muted) 25%, transparent);padding:28px 0;margin-top:40px;background:color-mix(in hsl, var(--surface) 95%, transparent)}
     .foot{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
     .foot small{color:var(--muted)}
+	
+/* Override theme colors: always white background + black text */
+:root {
+  --bg: #ffffff !important;
+  --surface: #ffffff !important;
+  --text: #000000 !important;
+  --muted: #000000 !important;
+}
+
+/* Ensure all content text is black */
+body, p, h1, h2, h3, h4, h5, h6, li, label, input, textarea, strong, small, span, div {
+  color: #000 !important;
+  background: #fff !important;
+}
+
+/* Keep hyperlinks blue unless hovered */
+a { 
+  color: #185bd8 !important; 
+}
+a:hover { 
+  text-decoration: underline !important; 
+}
+
+/* Media & Blogs responsive fix */
+@media (max-width: 768px) {
+  .grid_2Coloumn {
+    grid-template-columns: 1fr !important;
+    gap: 16px;
+    margin: 10px 0;
+  }
+
+  .blog_Cards img,
+  .blog_Cards iframe {
+    width: 100% !important;
+    height: auto !important;
+  }
+}
+/* Contact Section responsive fix */
+@media (max-width: 768px) {
+  .webcontact { display: none !important; }
+  .mobilecontact { display: block !important; }
+  #contacts { padding: 0 10px; }
+  .mobilecontact .card {
+    margin-bottom: 16px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  }
+}
+
+/* Hover effect for WhatsApp and Twitter links */
+a[href*="wa.me"]:hover i {
+  color: #128C7E; /* darker WhatsApp */
+}
+a[href*="x.com"]:hover i {
+  color: #0d8ce0; /* darker Twitter */
+}
+
+
+/* Social media icons - native color style */
+.social-icons {
+  margin-top: 10px;
+  display: flex;
+  gap: 14px;
+}
+
+.social-icons a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background-color: transparent; /* No background */
+  color: inherit;
+  font-size: 26px;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
+
+/* Icon colors */
+.social-icons a[href*="wa.me"] i {
+  color: #25D366; /* WhatsApp green */
+}
+
+.social-icons a[href*="x.com"] i {
+  color: #1DA1F2; /* Twitter blue */
+}
+.social-icons i {
+  filter: brightness(0.75);
+}
+
+.social-icons a:hover {
+  transform: scale(1.15);
+}
+.grievance-info {
+  font-size: 15px;
+  line-height: 1.6;
+  width: 100 percent;
+  padding: 10px;
+  box-sizing: border-box;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+.grievance-info p {
+  margin: 0 0 12px 0;
+  word-wrap: break-word;
+}
+
+.grievance-info a {
+  word-break: break-all;
+}
+
+
   </style>
 </head>
 <body>
   <a class="sr-only" href="#home">Skip to content</a>
 
   <header>
+  <h1 class="sr-only">Valuation Mantra</h1> <!-- fix for Page must contain a element--> 
     <div class="container nav" role="navigation" aria-label="Primary">
       <div class="brand"><div class="logo" aria-hidden="true" aria-label="VALUATION MANTRA"></div>VALUATION MANTRA</div>
       <button class="toggle" aria-expanded="false" aria-controls="menu" id="menuButton">☰ Menu</button>
       <nav class="menu" id="menu" aria-label="Navigation Menu">
         <a href="#home">Home</a>
         <a href="#AboutMe">About Us</a>
-        <a href="#pricing">Offering</a>
+       	<a href="#pricing">Our Expertise</a>
         <a href="#blogs">Blogs & Media</a>
 		<a href="#regulatory">Regulatory</a>
 		<a href="#complaints">Complaints</a>
@@ -225,6 +411,7 @@
         </div>
         <div>
           <h1 id="home-title" >VALUATION MANTRA</h1>
+		  <h2 class="home-caption">Decoding the Right Price to Invest</h2>
           <p class="style2">
 				Everything you want to buy has an MRP, but what about stocks? Advice like “buy the dip” or “buy low” or “buy right” is meaningless without a clear price. We provide low entry points to help you buy quality stocks at the right valuations with minimal downside. When your downside is limited, upside is infinite. buying at a low price also gives you peace of mind.
 		  </p>
@@ -237,11 +424,11 @@
       <div class="container aboutme">
 	 
 	  <div>
-        <h2 id="features-title">About Me</h2>
+        <h2 id="features-title">About</h2>
 		 <div  style="margin-top:10px" class="profile_image_left"><img src="./profile.jpg" alt="VALUATION MANTRA" width="80%"></div>
-        <p>Naresh Nambisan is the founder of Valuation Mantra and lives by the principle “Valuation is the Mantra.”. He believes in following a system and process come what may.  As NISM-certified, SEBI-registered research analyst, he brings 17 years of stock market experience as a full-time trader and investor. His philosophy centres on buying businesses at the right valuation, combining disciplined analysis with a deep respect for risk and reward.</p> <br/>
+        <p>Naresh Nambisan is the founder of Valuation Mantra and lives by the principle “Valuation is the Mantra". He believes in following a system and process come what may.  As NISM-certified, SEBI-registered research analyst, he brings 18 years of stockmarket experience as a full-time trader and investor. His philosophy centres on buying businesses at the right valuation, combining disciplined analysis with a deep respect for risk and reward.</p> <br/>
         <p>
-        Early in his journey, Naresh recognised the critical role of risk management and set out to develop a systematic way to identify fair and low valuations. To find right valuation, he used technical analysis. After years of rigorous work, extensive chart study, and thorough back testing, he created Virgin Price Action. This framework is designed to spot low-risk entry points by focusing on price structures where the downside is limited and the upside potential is substantial. Virgin Price Action is versatile and applies across equities, bonds, commodities, and currencies, helping investors buy low with greater confidence and clarity. </p>
+        Early in his journey, Naresh recognised the critical role of risk management and set out to develop a systematic way to identify fair and low valuations. To find right valuation, he uses technical analysis. After years of rigorous work, extensive chart study, and thorough back testing, he created Virgin Price Action. This framework is designed to spot low-risk entry points by focusing on price structures where the downside is limited and the upside potential is substantial. Virgin Price Action is versatile and applies across equities, bonds, commodities, and currencies, helping investors buy low with greater confidence and clarity. </p>
 		</div>
 		 <div  style="margin-top:70px" class="profile_image"><img src="./profile.jpg" alt="VALUATION MANTRA" width="200">
 	  </div>
@@ -255,18 +442,24 @@
     <section id="pricing" aria-labelledby="Offering">
       <div class="container offering_wrap">
         <div>
-          <h2 id="pricing-title">Offerings</h2>
-          <h3>We offer low valuation for NSE200 stocks for investing.</h3>
-		  <p><strong>What can we do for you ? </strong><br>
-As an investor, when a Stock falls or when a stock is correcting, are you confused where to buy? You can’t keep buying a stock because money is always finite. We can help you buy right by giving you a narrow price band which will be low & your downside less.  </p>
+          <h2 id="pricing-title">Our Expertise</h2>
+          <h3>We offer low valuation for NSE200 and Mid & Small Cap stocks for investing.</h3>
+		 <!----  <p><strong>What can we do for you ? </strong><br>-->
+		 <h4 style="margin-bottom:8px;">What can we do for you ?</h4>
+<p style="margin-top:0;">
+As an investor, when a stock falls or corrects, do you feel confused about where to buy ? You cannot keep buying a stock endlessly because money is always finite. Alternatively, whenever you want to buy a stock, do you simply purchase it at the current market price without giving importance to valuations ? In both cases, we can help you buy right by giving you a narrow price band that is low and keeps your downside limited.  </p>
         </div>
-        
+       
+
+
+
+	   
       </div>
 	  <div class="container offering_wrap list_item">
 												
-<b>What Sets us apart & how will buying stocks low help you ?</b>
+<b>What Sets us apart & how will buying stocks low at right valuation help you ?</b>
  
-                    <ol class="square_bullet">
+               <!----     <ol class="square_bullet">
 									<li class="square_bullet">We assign precise numbers to commonly used terms like ‘buy low’, ‘buy value’, ‘buy right’ & ‘buy the dip’ – bringing clarity. All these terms make sense only when its assigned a number/price & is actionable. </li>
 									<li class="square_bullet">When you buy at low valuations, your downside is limited & your upside is infinite.</li>
 									<li class="square_bullet">Starting valuations matter as they form the foundation of long term investment outcomes.</li>
@@ -276,7 +469,19 @@ As an investor, when a Stock falls or when a stock is correcting, are you confus
 									<li class="square_bullet">Even if you are buying dividend stocks, buy low so that you get both capital appreciation & dividends.</li>
 									<li class="square_bullet">Multibaggers are not found random; they are the result of following a system, process, buying low & allowing time to do the rest through compounding.</li>
 									
-								</ol>
+								</ol>-->
+								
+								<ul class="hand_bullet">
+  <li>We assign precise numbers to commonly used terms like ‘buy low’, ‘buy value’, ‘buy right’ & ‘buy the dip’ – bringing clarity. All these terms make sense only when its assigned a number/price & is actionable.</li>
+  <li>When you buy at low valuations, your downside is limited & your upside is infinite.</li>
+  <li>Starting valuations matter as they form the foundation of long term investment outcomes.</li>
+  <li>You can allocate bigger capital when your know your downside is capped.</li>
+  <li>Risk management begins with the price you pay – buying low is the first layer of protection.</li>
+  <li>Capital preservation is paramount & buying low plays a crucial role in safeguarding your money.</li>
+  <li>Even if you are buying dividend stocks, buy low so that you get both capital appreciation & dividends.</li>
+  <li>Multibaggers are not found random; they are the result of following a system, process, buying low & allowing time to do the rest through compounding.</li>
+</ul>
+
 								
 											
 											</div>
@@ -288,7 +493,7 @@ As an investor, when a Stock falls or when a stock is correcting, are you confus
     <section id="blogs" aria-labelledby="Media-Blogs">
       <div class="container Blogwrap">
   <h2 id="about-title">Media & Blogs</h2>
-          <p>Tell your story, mission, and team. Keep it short and scannable.</p>
+          <!-- <p>Tell your story, mission, and team. Keep it short and scannable.</p> -->
         </div>
         <div class="container" >
         <div class="grid_2Coloumn" >
@@ -297,18 +502,19 @@ As an investor, when a Stock falls or when a stock is correcting, are you confus
            Naresh Nambisan: Catching falling knives to trade for a living
 		  </p> <br> <a href="https://www.moneycontrol.com/news/business/markets/naresh-nambisan-catching-falling-knives-to-trade-for-a-living-4254171.html ">Read Article </a> 
 		 		  </article>
-				            <article class="card blog_Cards"><h3>Naresh Nambisan Blog</h3>
-		  <p><img src="./Naresh-Medium-Blog.jpg" alt="Naresh-Medium-Blog " width="480" height="200">
+				            <article class="card blog_Cards"><h3>Valuation Mantra Blog</h3>
+		  <p><img src="./Naresh-Medium-Blog.jpg" alt="Naresh-Medium-Blog " width="480" height="220">
+		  		<p> 40 Real Market Case Studies  </p>
 		  </p> <br> <a href="https://nareshbahrain.medium.com " alt="Medium Naresh Blog">View Blog </a> 
 		 		  </article>
 	  
 		  <article class="card blog_Cards"><h3>Face to Face interview with Vivek Bajaj</h3> 
-		<iframe   src="https://www.youtube.com/embed/7sxN2fY_qAM" title="Identify Stock bottoms using Virgin Price Action #Face2Face with Naresh Nambisan" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-		<p> Identify Stock bottoms using Virgin Price Action #Face2Face with Naresh Nambisan  </p>
+		<iframe   src="https://www.youtube.com/embed/7sxN2fY_qAM" title="Struggle, Persistence & Success - My Stockmarket journey with Vivek Bajaj" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+		<p> Struggle, Persistence & Success - My Stockmarket journey with Vivek Bajaj  </p>
 		  </article>
 		  <article class="card blog_Cards"><h3>Interview with Trinkerr</h3> 
 		 <iframe width="480"  height="300" src="https://www.youtube.com/embed/ND0_hfJGHzQ" title="Catching Falling Knives | @nareshbahrain | Trading | Investing | Indian Stock Market" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-		  <p>A falling knife refers to a rapid drop in the price or value of a security. Get the complete guide from the full-time trader and investor Naresh Nambisan</p>
+		  <p>How I developed the Methodology of buying Stocks at low valuations</p>
 		  </article>
 		 
          
@@ -316,17 +522,38 @@ As an investor, when a Stock falls or when a stock is correcting, are you confus
         </div>
       </div>
     </section>
+	
+	
+	<!-- Section 5 -->
+<section id="regulatory" aria-labelledby="Regulatory">
+  <div class="container offering_wrap">
+    <div>
+      <h2 id="Regulatory-title">Regulatory</h2>
+      <h3>Investment Charter</h3>
+      <p>
+        Investment in securities market are subject to market risks. Read all the related
+        documents carefully before investing. Registration granted by SEBI and certification
+        from NISM in no way guarantee performance of the intermediary or provide any assurance
+        of returns to investors.
+      </p>
 
-    <!-- Section 5 -->
-    <section id="regulatory" aria-labelledby="Regulatory">
-      <div class="container offering_wrap">
-        <div>
-          <h2 id="Regulatory-title">Regulatory</h2>
-          <h3>Investment Charter</h3>
-		  <p>Investment in securities market are subject to market risks. Read all the related documents carefully before investing. Registration granted by SEBI and certification from NISM in no way guarantee performance of the intermediary or provide any assurance of returns to investors</p>
-        </div>
-          </div>
-	    </section>
+      <!-- Responsive PDF Viewer -->
+   
+	  
+	  <div class="pdf-container">
+    <iframe src="./Investment Charter.pdf" title="Investment Charter PDF"></iframe>
+       </div>
+
+
+      <!-- Optional: direct download link -->
+      <p>
+        <a href="./Investment Charter.pdf" target="_blank">📄 Download Full Investment Charter (PDF)</a>
+      </p>
+    </div>
+  </div>
+</section>
+
+
  <!-- Section 6 -->
     <section id="complaints" aria-labelledby="Complaints">
       <div class="container offering_wrap">
@@ -446,7 +673,7 @@ As an investor, when a Stock falls or when a stock is correcting, are you confus
       <div class="table-cell">Pending</div>
          </div>
     <!-- Data Rows -->
-    <div class="table-row">
+    <!--<div class="table-row">
       <div class="table-cell">Aug 2025</div>
       <div class="table-cell">0</div>
       <div class="table-cell">0</div>
@@ -454,8 +681,103 @@ As an investor, when a Stock falls or when a stock is correcting, are you confus
       <div class="table-cell">0</div>
    
     </div>
+     <div class="table-row">
+      <div class="table-cell">Sep 2025</div>
+      <div class="table-cell">0</div>
+      <div class="table-cell">0</div>
+      <div class="table-cell">0</div>
+      <div class="table-cell">0</div>
    
-  </div>
+    </div>
+	<div class="table-row">
+      <div class="table-cell">Oct 2025</div>
+      <div class="table-cell">0</div>
+      <div class="table-cell">0</div>
+      <div class="table-cell">0</div>
+      <div class="table-cell">0</div>
+   
+    </div>
+	<div class="table-row">
+      <div class="table-cell">Nov 2025</div>
+      <div class="table-cell">0</div>
+      <div class="table-cell">0</div>
+      <div class="table-cell">0</div>
+      <div class="table-cell">0</div>
+   
+    </div>
+		<div class="table-row">
+      <div class="table-cell">Dec 2025</div>
+      <div class="table-cell">0</div>
+      <div class="table-cell">0</div>
+      <div class="table-cell">0</div>
+      <div class="table-cell">0</div>
+   
+    </div>-->
+
+		<div class="table-row">
+      <div class="table-cell">Jan 2026</div>
+      <div class="table-cell">0</div>
+      <div class="table-cell">0</div>
+      <div class="table-cell">0</div>
+      <div class="table-cell">0</div>
+   
+    </div>
+	<div class="table-row">
+	<div class="table-cell">Feb 2026</div>
+      <div class="table-cell">0</div>
+      <div class="table-cell">0</div>
+      <div class="table-cell">0</div>
+      <div class="table-cell">0</div>
+   
+    </div>
+	<div class="table-row">
+	<div class="table-cell">Mar 2026</div>
+      <div class="table-cell">0</div>
+      <div class="table-cell">0</div>
+      <div class="table-cell">0</div>
+      <div class="table-cell">0</div>
+   
+    </div>
+  	<div class="table-row">
+	<div class="table-cell">Apr 2026</div>
+      <div class="table-cell">0</div>
+      <div class="table-cell">0</div>
+      <div class="table-cell">0</div>
+      <div class="table-cell">0</div>
+   
+    </div>
+		<div class="table-row">
+	<div class="table-cell">May 2026</div>
+      <div class="table-cell">0</div>
+      <div class="table-cell">0</div>
+      <div class="table-cell">0</div>
+      <div class="table-cell">0</div>
+   
+    </div>
+		<div class="table-row">
+	<div class="table-cell">Jun 2026</div>
+      <div class="table-cell">0</div>
+      <div class="table-cell">0</div>
+      <div class="table-cell">0</div>
+      <div class="table-cell">0</div>
+   
+    </div>
+	<div class="table-row">
+	<div class="table-cell">Jul 2026</div>
+      <div class="table-cell">0</div>
+      <div class="table-cell">0</div>
+      <div class="table-cell">0</div>
+      <div class="table-cell">0</div>
+   
+    </div>
+	<div class="table-row">
+	<div class="table-cell">Aug 2026</div>
+      <div class="table-cell">0</div>
+      <div class="table-cell">0</div>
+      <div class="table-cell">0</div>
+      <div class="table-cell">0</div>
+   
+    </div>
 </section>
 <section class="table-section mobilecomplaints">
    <!-- Card 1 -->
@@ -508,56 +830,15 @@ As an investor, when a Stock falls or when a stock is correcting, are you confus
   </div>
 </section>
 
-        </div>
-		<div>Score:<a href=" https://scores.sebi.gov.in">https://scores.sebi.gov.in</a></div>
-        <div>ODR:<a href="https://smarrtodr.in">https://smarrtodr.in</a></div>
-          </div>
-	    </section>
-    <!-- Section 7 -->
-        
-        <section id="contact" aria-labelledby="contact-title">
-		<div class="contactwrap">
-  <div class="container">
-    <h2 id="contact-title">Contacts</h2>
-    
-    <div class="singlegrid">
-      <h3>Main Contact</h3>
-      <p>
-        <strong>Email:</strong> 
-        <a href="mailto:nareshbahrain@gmail.com">nareshbahrain@gmail.com</a><br>
-        <strong>Phone:</strong> 
-        <a href="tel:‪+919964001727‬">‪+91 99640 01727‬</a>
-      </p>
-      
-      <h3>Registration Details</h3>
-      <ul>
-        <li><strong>SEBI Registration:</strong> INH000022215</li>
-        <li><strong>BSE RA Enrollment No.:</strong> 6609</li>
-      </ul>
-      
-      <h3>Accessibility Nodal Officer</h3>
-      <p>
-        <strong>Name & Designation:</strong> Anupriya R (Compliance Officer)<br>
-        <strong>Email:</strong> 
-        <a href="mailto:valuationmantracompliance@gmail.com">
-          valuationmantracompliance@gmail.com
-        </a><br>
-        <strong>Phone:</strong> 
-        <a href="tel:‪+919972120202‬">‪+91 99721 20202‬</a>
-      </p>
-    </div>
-	</div>
-	</div>
-</section>
-
 <section id="contacts" aria-labelledby="contacts-title">
   <div class="container">
-    <h3 id="contacts-title">Contact Directory</h3>
-
+    <h3 id="contacts-title">Grievance Redressal/Escalation Matrix</h3>
+	
     
 	<section id="contacts" class="webcontact">
     <div class="table">
     <!-- Header Row -->
+
     <div class="table-row table-header">
       <div class="table-cell">Details of Designation</div>
       <div class="table-cell">Contact Person Name</div>
@@ -588,14 +869,20 @@ As an investor, when a Stock falls or when a stock is correcting, are you confus
     </div>
 
     <!-- Row 3 -->
-    <div class="table-row">
-      <div class="table-cell">Compliance Officer</div>
-      <div class="table-cell">Anupriya R</div>
-      <div class="table-cell">Flat No.5, Building No.16, 4th Main, Begur Road, Bengaluru, Karnataka 560068</div>
-      <div class="table-cell"><a href="tel:‪+919972120202‬">‪+91 99721 20202‬</a></div>
-      <div class="table-cell"><a href="mailto:valuationmantracompliance@gmail.com">valuationmantracompliance@gmail.com</a></div>
-      <div class="table-cell"></div>
-    </div>
+ <div class="table-row">
+  <div class="table-cell">Compliance Officer</div>
+  <div class="table-cell">Anupriya R</div>
+  <div class="table-cell">Flat No.5, Building No.16, 4th Main, Begur Road, Bengaluru, Karnataka 560068</div>
+  <div class="table-cell"><a href="tel:+917259282826">+91 72592 82826</a></div>
+  <div class="table-cell"><a href="mailto:valuationmantracompliance@gmail.com">valuationmantracompliance@gmail.com</a></div>
+  <div class="table-cell" style="white-space: normal; line-height: 1.2; padding-top: 4px; padding-bottom: 4px;">
+  Mon – Fri<br>
+  09 AM – 05 PM
+</div>
+
+</div>
+
+
 
     <!-- Row 4 -->
     <div class="table-row">
@@ -604,7 +891,10 @@ As an investor, when a Stock falls or when a stock is correcting, are you confus
       <div class="table-cell">Flat No.5, Building No.16, 4th Main, Begur Road, Bengaluru, Karnataka 560068</div>
       <div class="table-cell"><a href="tel:‪+919964001727‬">‪+91 99640 01727‬</a></div>
       <div class="table-cell"><a href="mailto:nareshbahrain@gmail.com">nareshbahrain@gmail.com</a></div>
-      <div class="table-cell"></div>
+       <div class="table-cell" style="white-space: normal; line-height: 1.2; padding-top: 4px; padding-bottom: 4px;">
+  Mon – Fri<br>
+  09 AM – 05 PM
+</div>
     </div>
 
     <!-- Row 5 -->
@@ -614,7 +904,10 @@ As an investor, when a Stock falls or when a stock is correcting, are you confus
       <div class="table-cell">Flat No.5, Building No.16, 4th Main, Begur Road, Bengaluru, Karnataka 560068</div>
       <div class="table-cell"><a href="tel:‪+919964001727‬">‪+91 99640 01727‬</a></div>
       <div class="table-cell"><a href="mailto:nareshbahrain@gmail.com">nareshbahrain@gmail.com</a></div>
-      <div class="table-cell"></div>
+       <div class="table-cell" style="white-space: normal; line-height: 1.2; padding-top: 4px; padding-bottom: 4px;">
+  Mon – Fri<br>
+  09 AM – 05 PM
+</div>
     </div>
   </div>
 </section>
@@ -622,33 +915,38 @@ As an investor, when a Stock falls or when a stock is correcting, are you confus
 	<!-- Mobile Card -->
   
   <section id="contacts" class="mobilecontact">
-  <h2>Contact Directory</h2>
+  <h3>Grievance Redressal/Escalation Matrix</h3>
 
   <div class="card">
     <div class="field"><strong>Details of Designation:</strong> Customer Care</div>
-    <div class="field"><strong>Contact Person Name:</strong> —</div>
-    <div class="field"><strong>Address:</strong> —</div>
-    <div class="field"><strong>Contact No.:</strong> —</div>
-    <div class="field"><strong>Email-ID:</strong> —</div>
-    <div class="field"><strong>Working Hours:</strong> —</div>
+    <div class="field"><strong>Contact Person Name:</strong> </div>
+    <div class="field"><strong>Address:</strong> </div>
+    <div class="field"><strong>Contact No.:</strong> </div>
+    <div class="field"><strong>Email-ID:</strong> </div>
+    <div class="field"><strong>Working Hours:</strong> </div>
   </div>
 
   <div class="card">
     <div class="field"><strong>Details of Designation:</strong> Head of Customer Care</div>
-    <div class="field"><strong>Contact Person Name:</strong> —</div>
-    <div class="field"><strong>Address:</strong> —</div>
-    <div class="field"><strong>Contact No.:</strong> —</div>
-    <div class="field"><strong>Email-ID:</strong> —</div>
-    <div class="field"><strong>Working Hours:</strong> —</div>
+    <div class="field"><strong>Contact Person Name:</strong> </div>
+    <div class="field"><strong>Address:</strong> </div>
+    <div class="field"><strong>Contact No.:</strong> </div>
+    <div class="field"><strong>Email-ID:</strong> </div>
+    <div class="field"><strong>Working Hours:</strong> </div>
   </div>
 
   <div class="card">
     <div class="field"><strong>Details of Designation:</strong> Compliance Officer</div>
     <div class="field"><strong>Contact Person Name:</strong> Anupriya R</div>
     <div class="field"><strong>Address:</strong> Flat No.5, Building No.16, 4th Main, Begur Road, Bengaluru, Karnataka 560068</div>
-    <div class="field"><strong>Contact No.:</strong> <a href="tel:+919972120202">+91 99721 20202</a></div>
+    <div class="field"><strong>Contact No.:</strong> <a href="tel:+917259282826">+91 72592 82826</a></div>
     <div class="field"><strong>Email-ID:</strong> <a href="mailto:valuationmantracompliance@gmail.com">valuationmantracompliance@gmail.com</a></div>
-    <div class="field"><strong>Working Hours:</strong> —</div>
+  	<div class="field">
+  <strong>Working Hours:</strong><br>
+  Mon – Fri<br>
+  09 AM – 05 PM
+</div>
+
   </div>
 
   <div class="card">
@@ -657,7 +955,12 @@ As an investor, when a Stock falls or when a stock is correcting, are you confus
     <div class="field"><strong>Address:</strong> Flat No.5, Building No.16, 4th Main, Begur Road, Bengaluru, Karnataka 560068</div>
     <div class="field"><strong>Contact No.:</strong> <a href="tel:+919964001727">+91 99640 01727</a></div>
     <div class="field"><strong>Email-ID:</strong> <a href="mailto:nareshbahrain@gmail.com">nareshbahrain@gmail.com</a></div>
-    <div class="field"><strong>Working Hours:</strong> —</div>
+    <div class="field">
+  <strong>Working Hours:</strong><br>
+  Mon – Fri<br>
+  09 AM – 05 PM
+</div>
+
   </div>
 
   <div class="card">
@@ -666,13 +969,121 @@ As an investor, when a Stock falls or when a stock is correcting, are you confus
     <div class="field"><strong>Address:</strong> Flat No.5, Building No.16, 4th Main, Begur Road, Bengaluru, Karnataka 560068</div>
     <div class="field"><strong>Contact No.:</strong> <a href="tel:+919964001727">+91 99640 01727</a></div>
     <div class="field"><strong>Email-ID:</strong> <a href="mailto:nareshbahrain@gmail.com">nareshbahrain@gmail.com</a></div>
-    <div class="field"><strong>Working Hours:</strong> —</div>
+    <div class="field">
+  <strong>Working Hours:</strong><br>
+  Mon – Fri<br>
+  09 AM – 05 PM
+</div>
+
   </div>
 </section>
-	<!-- Mobile Card -->
-	
-	
+	<!-- Mobile Card -->   
+	<!--   
+		
+<div style="font-size: 15px; line-height: 1.4;">
+  <p>We aim to resolve all grievances within 21 working days from the date of receipt.</p>
+  <p>If your grievance is not resolved within this timeframe, you can escalate it to SEBI’s SCORES Platform (SEBI Complaints Redress System).</p>
+  <p><strong>SCORES Portal:</strong> <a href="https://scores.sebi.gov.in" target="_blank">scores.sebi.gov.in</a></p>
+  <p>In case you are unsatisfied with the resolution provided through our support or the SCORES platform, you can access the Online Dispute Resolution (ODR) Portal.</p>
+  <p><strong>ODR Portal:</strong> <a href="https://smartodr.in" target="_blank">smartodr.in</a></p>
+</div> --> 
+<div class="grievance-info">
 
+  <p>In case of any grievance / complaint against the research analyst:</p>
+  <p>Please contact Compliance Officer of the research analyst.</p>
+  <p>You may also approach CEO / Partner / Proprietor.</p>
+  <p>We aim to resolve all grievances within 21 working days from the date of receipt.</p>
+
+  <p>If your grievance is not resolved within this timeframe, you can escalate it to SEBI’s SCORES Platform
+     (SEBI Complaints Redress System).</p>
+
+  <p><strong>SCORES Portal:</strong>
+     <a href="https://scores.sebi.gov.in" target="_blank" rel="noopener">scores.sebi.gov.in</a>
+  </p>
+
+  <p>In case you are unsatisfied with the resolution provided through our support or the SCORES platform,
+     you can access the Online Dispute Resolution ODR Portal.</p>
+
+  <p><strong>ODR Portal:</strong>
+     <a href="https://smartodr.in" target="_blank" rel="noopener">smartodr.in</a>
+  </p>
+</div>
+
+
+<div style="margin-top:10px; font-family: Georgia, 'Times New Roman', Times, serif;">
+  <strong>SEBI Bhavan</strong><br>
+  Plot No. C4-A, G Block, Bandra-Kurla Complex, Bandra (East), Mumbai - 400051<br>
+  <strong>Phone:</strong> +91-22-26449000 / 40459000<br>
+  <strong>Website:</strong> <a href="https://www.sebi.gov.in" target="_blank">www.sebi.gov.in</a>
+</div>
+
+		
+    <!-- Section 7 -->
+        
+<section id="contact" aria-labelledby="contact-title">
+  <div class="container offering_wrap" style="padding-left:0;">
+    <div>
+      <h2 id="contact-title" style="margin-left:0; padding-left:0;">Contacts</h2>
+
+
+    
+    <div class="singlegrid">
+      <h3>Main Contact</h3>
+      <p>
+        <strong>Email:</strong> 
+        <a href="mailto:nareshbahrain@gmail.com">nareshbahrain@gmail.com</a><br>
+        <strong>Phone:</strong> 
+        <a href="tel:‪+919964001727‬">‪+91 99640 01727‬</a>
+
+
+<!-- Contact social links with native icons -->
+<p style="margin-top:12px;">
+  <strong>Chat with Us:</strong>
+  <a href="https://wa.me/917259282826" target="_blank" style="display:inline-flex;align-items:center;gap:6px;text-decoration:none;">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="" width="22" height="22">
+    <span style="color:#25D366;">WhatsApp</span>
+  </a>
+   <br>
+  <strong>Twitter:</strong>
+  <a href="https://x.com/nareshbahrain" target="_blank" style="display:inline-flex;align-items:center;gap:6px;text-decoration:none;margin-top:6px;">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/X_logo_2023_original.svg" alt="Twitter" width="22" height="22">
+    <span style="color:#1DA1F2;">@nareshbahrain</span>
+  </a>
+</p>
+
+
+      </p>
+	  
+
+
+      
+      <h3>Registration Details</h3>
+      <ul>
+       
+		<li><strong>SEBI Registration:</strong> INH000022215<br>(Validity: Perpetual)</li>
+
+        <li><strong>BSE RA Enrollment No.:</strong> 6609</li>
+      </ul>
+      
+      <h3>Accessibility Nodal Officer</h3>
+      <p>
+        <strong>Name & Designation:</strong> Anupriya R (Compliance Officer)<br>
+        <strong>Email:</strong> 
+        <a href="mailto:valuationmantracompliance@gmail.com">
+          valuationmantracompliance@gmail.com
+        </a><br>
+        <strong>Phone:</strong> 
+        <a href="tel:‪+917259282826">‪+91 72592 82826</a>
+      </p>
+    </div>
+	</div>
+	</div>
+</section>
+
+
+	
+	
+	<!--
 <style>
 
 </style>
@@ -700,19 +1111,48 @@ As an investor, when a Stock falls or when a stock is correcting, are you confus
           </div>
         </form>
       </div>
-    </section>
+    </section> -->
   </main>
 
   <footer>
     <div class="container foot">
-      <small>© <span id="year"></span>Valuation Manthr. All rights reserved.</small>
+      <small>© <span id="year"></span>Valuation Mantra. All rights reserved.</small>
       <div style="display:flex;gap:14px">
         <a href="#home">Top ↑</a>
         <a href="#AboutMe">About</a>
         <a href="#contact">Contact</a>
+		<a href="./Disclosures.pdf" target="_blank">Disclosures</a>	 
+		<a href="./SEBICheck.pdf" target="_blank">SEBI Check</a>
       </div>
     </div>
   </footer>
+<script defer='defer' src='https://cdn.jsdelivr.net/npm/sienna-accessibility@latest/dist/sienna-accessibility.umd.js'></script>
+<script>
+  (function () {
+
+    function fixLink() {
+      document
+        .querySelectorAll('a[href="https://accessibility-widget.pages.dev"]')
+        .forEach(link => {
+          link.setAttribute("href", "/");
+          link.removeAttribute("target"); // optional: keeps navigation in same tab
+          link.setAttribute("rel", "noopener"); // optional safety
+        });
+    }
+
+    // Run once after load
+    document.addEventListener("DOMContentLoaded", fixLink);
+
+    // Watch for dynamically added elements
+    const observer = new MutationObserver(fixLink);
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true
+    });
+
+  })();
+</script>
+
 
   <script>
     // Mobile menu toggle
