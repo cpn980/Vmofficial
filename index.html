@@ -122,12 +122,45 @@
 	.contactwrap { width:100%; }
 	.singlegrid {grid-template-columns:1fr; margin:0px auto; width:500px; border:1px solid grey; padding:24px; background-color:#FFF;}
 	
-   .table { display:table; width:100%; border-collapse:collapse;}
+   /*.table { display:table; width:100%; border-collapse:collapse;}*/
+   .table {
+    display: table;
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    }
+   
    .table-row { display: table-row;}
   /* .table-header { font-weight: bold; background: #a9a9a9;} fix for 3:1 contrast*/
    .table-header { font-weight: bold; background: #666 !important;   color: #fff !important;}
 
    .table-cell {display:table-cell; border: 1px solid #ddd; padding: 8px; text-align: left;}
+
+   /* Grievance Redressal/Escalation Matrix table only: new font + equal-width columns */
+   #contacts .webcontact .table {
+     table-layout: fixed;
+   }
+   #contacts .webcontact .table-cell {
+     font-family: Georgia, "Times New Roman", Times, serif;
+     width: 16.6666%;
+     word-wrap: break-word;
+     overflow-wrap: break-word;
+   }
+   /* Same table, mobile card view */
+   #contacts .mobilecontact,
+   #contacts .mobilecontact .card,
+   #contacts .mobilecontact .field {
+     font-family: Georgia, "Times New Roman", Times, serif;
+   }
+   /* Section heading, both desktop and mobile */
+   #contacts-title,
+   #contacts .mobilecontact h3 {
+     font-family: Georgia, "Times New Roman", Times, serif;
+   }
+   /* Final "Contacts" section at the end of the page (Main Contact, Registration Details, Accessibility Nodal Officer) */
+   #contact {
+     font-family: Georgia, "Times New Roman", Times, serif;
+   }
 	
 	#contacts {    max-width: 1500px;     margin: 20px auto;    font-family: Arial, sans-serif;    padding: 10px;  }
     #contacts h2 {    margin-bottom: 16px;    text-align: center;  }
@@ -147,7 +180,8 @@
 	.table-section {
     max-width: 900px;
     margin: 20px auto;
-    font-family: Arial, sans-serif;
+    /*font-family: Arial, sans-serif;*/
+	font-family: Georgia, "Times New Roman", Times, serif;
     padding: 10px;
   }
   .table-section h2 { margin-bottom: 16px;    text-align: center;  }
@@ -330,6 +364,7 @@ a[href*="x.com"]:hover i {
   width: 100 percent;
   padding: 10px;
   box-sizing: border-box;
+  font-family: Georgia, "Times New Roman", Times, serif;
 }
 
 .grievance-info p {
@@ -975,7 +1010,7 @@ As an investor, when a stock falls or corrects, do you feel confused about where
 </div>
 
 
-<div style="margin-top:10px;">
+<div style="margin-top:10px; font-family: Georgia, 'Times New Roman', Times, serif;">
   <strong>SEBI Bhavan</strong><br>
   Plot No. C4-A, G Block, Bandra-Kurla Complex, Bandra (East), Mumbai - 400051<br>
   <strong>Phone:</strong> +91-22-26449000 / 40459000<br>
