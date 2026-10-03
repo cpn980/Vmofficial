@@ -313,6 +313,13 @@ a:hover {
   text-decoration: underline !important;
 }
 header a, footer a { color: #F2EEE2 !important; }
+
+/* Table header row text was being overridden to dark green by the generic div color rule above, making it invisible on the green header background. Force it white, and keep the green background explicit on the cells too. */
+.table-row.table-header .table-cell,
+.table-header.table-cell {
+  color: #ffffff !important;
+  background: var(--primary) !important;
+}
 header a:hover, footer a:hover { color: #DCC077 !important; }
 
 /* Media & Blogs responsive fix */
