@@ -10,33 +10,49 @@
   gtag('config', 'G-RRE8YX0RV1');
 </script>
 <head>
+<!-- X conversion tracking base code -->
+<script>
+!function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);
+},s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,u.src='https://static.ads-twitter.com/uwt.js',
+a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
+twq('config','qnbu1');
+</script>
+<!-- End X conversion tracking base code -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
- 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Baloo+2:wght@600;700;800&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+
   <title>Valuation Mantra</title>
   <style>
     :root{
-      --bg: #0b1020;
-      --surface: #12172a;
-      --text: #e8edf7;
-      --muted: #4a5568;   /*--muted: #9aa4c7; fix for contrst 3:1*/
-      --primary: #6aa3ff;
-      --primary-cta: #4f8dff;
-      --ring: rgba(106,163,255,.35);
+      --bg: #F6F2E7;
+      --surface: #FFFDF7;
+      --text: #15301F;
+      --muted: #3E5A45;   /* darkened for 4.5:1+ contrast on cream */
+      --primary: #0E3B22;
+      --primary-cta: #0B2E1A;
+      --gold: #C7992E;
+      --gold-soft: #DCC077;
+      --ring: rgba(199,153,46,.45);
       --maxw: 1100px;
       --radius: 16px;
-      --shadow: 0 10px 30px rgba(0,0,0,.25);
+      --shadow: 0 10px 30px rgba(15,61,35,.15);
+      --font-display: 'Oswald', 'Arial Narrow', sans-serif;
+      --font-brand: 'Baloo 2', 'Nunito', sans-serif;
+      --font-body: 'Nunito', system-ui, sans-serif;
     }
     @media (prefers-color-scheme: light){
       :root{
-        --bg: #f7f9ff;
-        --surface: #ffffff;
-        --text: #0e1020;
-        --muted: #52607a;
-        --primary: #185bd8;
-        --primary-cta: #154fc0;
-        --ring: rgba(24,91,216,.25);
+        --bg: #F6F2E7;
+        --surface: #FFFDF7;
+        --text: #15301F;
+        --muted: #3E5A45;
+        --primary: #0E3B22;
+        --primary-cta: #0B2E1A;
+        --ring: rgba(199,153,46,.45);
       }
     }
 
@@ -45,13 +61,16 @@
     body{
       margin:0;
 	    font-size: 17px; /* was ~16px by default */
-      /*font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";*/
-	  
-	  font-family: Georgia, "Times New Roman", Times, serif;
+	  font-family: var(--font-body);
       color:var(--text);
-      background: radial-gradient(1200px 600px at 70% -10%, rgba(106,163,255,.15), transparent 60%), var(--bg);
+      background: var(--bg);
       line-height:1.6;
     }
+    h1, h2, #home-title { font-family: var(--font-display); text-transform:uppercase; letter-spacing:0.01em; }
+    h3, h4 { font-family: var(--font-brand); }
+    .brand { font-family: var(--font-brand) !important; }
+    #home-title { font-family: var(--font-brand); letter-spacing:0; color:var(--primary); }
+    .home-caption { color:var(--text); font-size:clamp(16px, 2.2vw, 22px); }
     a{color:inherit;text-decoration:none;}
     .container{max-width:var(--maxw);margin-inline:auto;padding:0 20px}
     .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
@@ -59,21 +78,23 @@
     /* Header */
     header{
       position:sticky;top:0;z-index:50;
-      background: color-mix(in hsl, var(--surface) 90%, transparent);
-      backdrop-filter:saturate(140%) blur(10px);
-      border-bottom:1px solid color-mix(in hsl, var(--muted) 25%, transparent);
+      background: var(--primary);
+      border-bottom:3px solid var(--gold);
     }
     .nav{display:flex;align-items:center;justify-content:space-between;min-height:64px}
-    .brand{display:flex;gap:10px;align-items:center;font-weight:700; font-size:1em;}
+    .brand{display:flex;gap:10px;align-items:center;font-weight:700; font-size:1.1em; color:#FFFDF7;}
     .brand .logo{
       width:32px;height:32px;border-radius:8px; background-image:URL(''); background-size:100% 100%;
+      border:2px solid var(--gold);
           }
     .menu{display:flex;gap:12px;align-items:center}
-    .menu a{padding:10px 12px;border-radius:12px text-decoration:none;}
-    .menu a:hover, .menu a:focus{outline:0;background:color-mix(in hsl, var(--primary) 18%, transparent)}
-	 #home-title { text-align:left; font-size:2em; line-height:1.2; margin-bottom:20px; padding:0px; } 
+    .menu a{padding:10px 12px;border-radius:12px; text-decoration:none; color:#F2EEE2; font-weight:600;}
+    .menu a:hover{background:color-mix(in hsl, var(--gold) 25%, transparent); color:#fff;}
+    .menu a:focus-visible{outline:3px solid var(--gold); outline-offset:2px; background:color-mix(in hsl, var(--gold) 25%, transparent); color:#fff;}
+	 #home-title { text-align:left; font-size:2.1em; line-height:1.2; margin-bottom:20px; padding:0px; color:var(--text);} 
 	
-    .cta{padding:10px 24px; border-radius:8px; background:#000000;color:white;font-weight:600;}
+    .cta{padding:10px 24px; border-radius:8px; background:var(--primary-cta); color:#FFFDF7; font-weight:700; border:2px solid var(--gold); font-family: var(--font-brand);}
+    .cta:hover{ background:var(--gold); color:var(--primary-cta); border-color:var(--primary-cta); }
     .cta:focus-visible{outline:3px solid var(--ring)}
 
     .toggle{display:none;background:none;border:0;font-size:16px;padding:10px;border-radius:12px}
@@ -93,10 +114,10 @@
 	section .offering_wrap{display:grid;grid-template-columns:1fr; align-items:center}
 	section .list_item { margin-top:20px; }
 	section .list_item ol li { margin:10px; }
-	section h2{margin:0 0 10px;font-size:clamp(22px, 3.2vw, 36px)}
+	section h2{margin:0 0 10px;font-size:clamp(22px, 3.2vw, 36px); color:var(--primary); padding-bottom:12px; border-bottom:2px dotted var(--gold);}
     section p{margin:0;color:var(--muted)}
-    .card{background-color:transparent; margin:auto;}
-	.blog_Cards { background-color:#FFFFFF;  padding:10px; } 
+    .card{background-color:var(--surface); margin:auto; border:1px solid var(--gold-soft); border-radius:var(--radius); padding:18px; box-shadow:var(--shadow);}
+	.blog_Cards { background-color:var(--surface); padding:16px; border:1px solid var(--gold-soft); border-radius:var(--radius); } 
 
     .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
 	.grid_3Coloumn{display:grid;grid-template-columns:repeat(3,1fr);gap:24px; margin:50px 20px 50px 20px;}
@@ -120,7 +141,7 @@
 	/*.complaints_table { margin: 40px 0px; }*/
 	.complaints_table { margin: 10px 0px !important; }
 	.contactwrap { width:100%; }
-	.singlegrid {grid-template-columns:1fr; margin:0px auto; width:500px; border:1px solid grey; padding:24px; background-color:#FFF;}
+	.singlegrid {grid-template-columns:1fr; margin:0px auto; width:500px; border:1px solid var(--gold-soft); border-radius:var(--radius); padding:24px; background-color:var(--surface); box-shadow:var(--shadow);}
 	
    /*.table { display:table; width:100%; border-collapse:collapse;}*/
    .table {
@@ -132,7 +153,7 @@
    
    .table-row { display: table-row;}
   /* .table-header { font-weight: bold; background: #a9a9a9;} fix for 3:1 contrast*/
-   .table-header { font-weight: bold; background: #666 !important;   color: #fff !important;}
+   .table-header { font-weight: bold; background: var(--primary) !important;   color: #fff !important;}
 
    .table-cell {display:table-cell; border: 1px solid #ddd; padding: 8px; text-align: left;}
 
@@ -263,30 +284,52 @@
 
     /* Footer */
     footer{border-top:1px solid color-mix(in hsl, var(--muted) 25%, transparent);padding:28px 0;margin-top:40px;background:color-mix(in hsl, var(--surface) 95%, transparent)}
-    .foot{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
-    .foot small{color:var(--muted)}
+    footer{ background:var(--primary); border-top:3px solid var(--gold); }
+    .foot{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between; padding:18px 0;}
+    .foot small{color:#DCE6DC}
+    .foot a{ color:#F2EEE2; font-weight:600; }
+    .foot a:hover{ color:var(--gold-soft); }
 	
-/* Override theme colors: always white background + black text */
+/* Theme-consistent contrast baseline: cream background + dark green text, kept !important so it still wins over any stray inline/third-party styles */
 :root {
-  --bg: #ffffff !important;
-  --surface: #ffffff !important;
-  --text: #000000 !important;
-  --muted: #000000 !important;
+  --bg: #F6F2E7 !important;
+  --surface: #FFFDF7 !important;
+  --text: #15301F !important;
+  --muted: #3E5A45 !important;
 }
 
-/* Ensure all content text is black */
-body, p, h1, h2, h3, h4, h5, h6, li, label, input, textarea, strong, small, span, div {
-  color: #000 !important;
-  background: #fff !important;
+/* Ensure all body content uses the theme's dark green ink on cream, except inside the green header/footer which set their own light text */
+body, p, li, label, input, textarea, strong, small, span, div {
+  color: #15301F !important;
+  background: transparent !important;
 }
+h1, h2, h3, h4, h5, h6 {
+  color: var(--primary) !important;
+}
+body { background: #F6F2E7 !important; }
+header, header *, footer, footer * {
+  color: #F2EEE2 !important;
+}
+header .brand, header h1.sr-only { color: #FFFDF7 !important; }
+#home-title { color: var(--primary) !important; }
 
-/* Keep hyperlinks blue unless hovered */
-a { 
-  color: #185bd8 !important; 
+/* Hyperlinks use the deep green theme color, gold on hover */
+a {
+  color: #0E3B22 !important;
 }
-a:hover { 
-  text-decoration: underline !important; 
+a:hover {
+  color: #8A6A1F !important;
+  text-decoration: underline !important;
 }
+header a, footer a { color: #F2EEE2 !important; }
+
+/* Table header row text was being overridden to dark green by the generic div color rule above, making it invisible on the green header background. Force it white, and keep the green background explicit on the cells too. */
+.table-row.table-header .table-cell,
+.table-header.table-cell {
+  color: #ffffff !important;
+  background: var(--primary) !important;
+}
+header a:hover, footer a:hover { color: #DCC077 !important; }
 
 /* Media & Blogs responsive fix */
 @media (max-width: 768px) {
@@ -680,15 +723,7 @@ As an investor, when a stock falls or corrects, do you feel confused about where
       <div class="table-cell">0</div>
       <div class="table-cell">0</div>
    
-    </div>
-     <div class="table-row">
-      <div class="table-cell">Sep 2025</div>
-      <div class="table-cell">0</div>
-      <div class="table-cell">0</div>
-      <div class="table-cell">0</div>
-      <div class="table-cell">0</div>
-   
-    </div>
+
 	<div class="table-row">
       <div class="table-cell">Oct 2025</div>
       <div class="table-cell">0</div>
@@ -778,8 +813,9 @@ As an investor, when a stock falls or corrects, do you feel confused about where
       <div class="table-cell">0</div>
    
     </div>
-		<div class="table-row">
-	<div class="table-cell">Sep 2026</div>
+	   
+     <div class="table-row">
+      <div class="table-cell">Sep 2026</div>
       <div class="table-cell">0</div>
       <div class="table-cell">0</div>
       <div class="table-cell">0</div>
