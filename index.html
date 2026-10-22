@@ -83,10 +83,16 @@ twq('config','qnbu1');
     }
     .nav{display:flex;align-items:center;justify-content:space-between;min-height:64px}
     .brand{display:flex;gap:10px;align-items:center;font-weight:700; font-size:1.1em; color:#FFFDF7;}
-    .brand .logo{
-      width:32px;height:32px;border-radius:8px; background-image:URL('./logo.jpg'); background-size:100% 100%;
-      border:2px solid var(--gold);
-          }
+   	    .brand .logo{
+      width:36px;height:36px;border-radius:8px; flex-shrink:0;
+      /* !important needed: the global "div { background: transparent !important }" rule below would otherwise wipe the image */
+      background-image:url('./logo.jpg') !important;
+      background-size:cover !important;
+      background-position:center !important;
+      background-repeat:no-repeat !important;
+	  
+    }	  
+		  
     .menu{display:flex;gap:12px;align-items:center}
     .menu a{padding:10px 12px;border-radius:12px; text-decoration:none; color:#F2EEE2; font-weight:600;}
     .menu a:hover{background:color-mix(in hsl, var(--gold) 25%, transparent); color:#fff;}
